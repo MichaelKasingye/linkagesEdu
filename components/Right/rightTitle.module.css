@@ -1,0 +1,11 @@
+.right_title{
+    display: flex;
+    align-items:center;
+}
+.right_title h4{
+    color: rgb(221, 213, 213);
+}
+.icon_title{
+    color: #27AE60;
+    font-weight: bolder;
+}
