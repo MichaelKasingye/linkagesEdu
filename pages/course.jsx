@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftSide from '../components/Left/LeftSide';
-import RightSide from '../components/Right/RightSide';
+import LeftSide from '../components/Left/LeftBody/LeftSide';
+import RightSide from '../components/Right/RightBody/RightSide';
 import general from '../styles/general.module.css'
 function course() {
   return (
