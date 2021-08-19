@@ -1,13 +1,13 @@
-import Nav from "./Nav";
+import Navbar from "./Nav/Navbar";
 import Meta from "./Meta";
 // import Footer from "./Footer";
-import styles from "../styles/global_css/Layout.module.css";
+//import styles from "../styles/global_css/Layout.module.css";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Meta />
-      <Nav />
+      {/* <Meta /> */}
+      <Navbar />
       <div>{children}</div>
 
       {/* <Footer /> */}
