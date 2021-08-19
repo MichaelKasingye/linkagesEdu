@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 import logo from "../images/outbox.png"
-import profilePic from "../images/user.jpg";
+import profilePic from "../images/user.png";
 
 
 export default function Navbar(userProfile) {
