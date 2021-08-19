@@ -1,0 +1,34 @@
+.navbar {
+  height: 15vh;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 100;
+  padding: 0.75rem;
+  position:sticky;
+  background-color: #fff;
+}
+.logo {
+  font-size: 1.2rem;
+  font-weight: 600; 
+}
+.links {
+  display: flex;
+}
+.navlink {
+  list-style: none;
+  margin: 0 0.5rem;   
+  font-weight: 400;
+  color: black;
+}
+.navlink:hover, .active{
+  color: #096691;
+} 
+
+.name{  
+  margin-right: 0.2rem; 
+}
+.img{      
+  border-radius: 50%;   
+}
