@@ -1,15 +1,15 @@
 import React from 'react'
-import leftCss from './LeftSide.module.css';
-
+import Logo from '../../Logo/Logo';
+import LeftMenu from '../../LeftMenu/LeftMenu';
+import leftCss from '../../../styles/body/LeftSide.module.css';
 
 function LeftSide() {
 
     return (
         <section className={leftCss.left}>
+                    <Logo/>
+                    <LeftMenu/>
         <div  className={leftCss.left_box}>
-        {/* <Logo logo = "self" logo2="Teach"/> */}
-            {/* <Title title="Front end"/> */}
-            {/* {frontEndList} */}
 
         </div>
     </section>
