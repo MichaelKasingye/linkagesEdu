@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TitleRight from '../../TitleRight/TitleRight';
+import SearchBar from '../../SearchBar/SearchBar';
+import {FormsText, FormsTextArea} from '../../Forms/Forms';
+
 import rightCss from '../../../styles/body/RightBody.module.css';
+import Modal from '../../Modal/Modal';
+import { ButtonFilled, ButtonOutlined } from '../../Button/Button';
+import Paragraph from '../../Paragraph/Paragraph';
+import Border from '../../Border/Border';
+
+
+
 
 function RightSide() {
+
     return (
         <section className={rightCss.right}>
 
        <TitleRight title= "Job Opportunities"/>
+       <SearchBar placeholder="Search.."/>
+        <FormsText shortDes="info" title="title"/>
+        <FormsTextArea longDes="text Area"  title="title"/>
+
+        <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok"/>
+       <ButtonFilled text = "button1"/>
+       <ButtonOutlined text = "button2"/>
+       <Border/>
+       <Paragraph text = "THis is a paragraph"/>
         </section>
     )
 }
