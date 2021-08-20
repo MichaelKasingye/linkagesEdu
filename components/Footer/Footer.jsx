@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../images/outbox.png";
+import { FiTwitter, FiFacebook, FiLinkedin } from "react-icons/fi";
 function Footer() {
   return (
     <div className={styles.footer}>
       <h2>Join the community</h2>
       <div className={styles.flex1}>
-        <button className={styles.button1}>Receive news</button>
-        <button className={styles.button2}>Join here</button>
+        <button className={styles.button1}>RECEIVE NEWS</button>
+        <button className={styles.button2}>JOIN HERE</button>
       </div>
       <div className={styles.flex2}>
         <div>
@@ -18,9 +21,7 @@ function Footer() {
           <li>
             <Link href="#about">About us</Link>
           </li>
-          <li>
-            <Link href="#home">What we do</Link>
-          </li>
+
           <li>
             <Link href="#home">Events</Link>
           </li>
@@ -32,6 +33,9 @@ function Footer() {
           <h4>WHAT WE DO</h4>
           <li>
             <Link href="#home">Lorem</Link>
+          </li>
+          <li>
+            <Link href="#about">Lorem</Link>
           </li>
           <li>
             <Link href="#about">Lorem</Link>
@@ -57,14 +61,28 @@ function Footer() {
         </div>
       </div>
       <div className={styles.copysection}>
+        <Link href="/" className={styles.logo}>
+          <a>
+            <Image src={logo} alt="logo" width={100} height={40} />
+          </a>
+        </Link>
         <div>
-          <h4>Logo</h4>
+          <p style={{ fontSize: "14px" }}>
+            © 2021 OutBox EDU. All Rights Reserved.{" "}
+          </p>
         </div>
-        <div>
-          <p>© 2021 OutBox EDU. All Rights Reserved. </p>
+        <div className={styles.social}>
+          <a href="https://facebook.com/">
+            <FiFacebook />
+          </a>
+          <a href="https://linkedin.com/">
+            <FiLinkedin />
+          </a>
+          <a href="https://linkedin.com/">
+            <FiTwitter />
+          </a>
         </div>
       </div>
-      <div className={styles.social}></div>
     </div>
   );
 }
