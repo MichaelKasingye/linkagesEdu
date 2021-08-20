@@ -1,5 +1,5 @@
 .navbar {
-  height: 15vh;
+  height: 20vh;
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -9,11 +9,8 @@
   position:sticky;
   background-color: #fff;
   z-index: 10;
-}
-.logo {
-  font-size: 1.2rem;
-  font-weight: 600; 
-}
+  box-shadow: 0px 0px 8px 0px #000000;
+} 
 .links {
   display: flex;
 }
@@ -33,3 +30,17 @@
 .img{      
   border-radius: 50%;   
 }
+ .menu{  
+    line-height: 20px;
+    position: absolute;
+    width: max-content;
+    height: fit-content;
+    background: #096691 ; 
+    top: auto;  
+    right: 0;
+    color: #fff;
+    padding:10px;  
+ } 
+ .menuitem:hover{
+   color:#D9E0E8
+ }

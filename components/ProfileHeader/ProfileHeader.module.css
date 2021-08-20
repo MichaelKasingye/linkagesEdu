@@ -1,0 +1,9 @@
+ #profile-header{
+   display: flex;
+   flex-direction: column;
+ }
+
+ .p{
+   line-height: 0.5;
+   float:right;
+ }
