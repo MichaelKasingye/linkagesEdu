@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftSide from '../components/Left/LeftBody/LeftSide';
-import RightSide from '../components/Right/RightBody/RightSide';
+import LeftSide from '../components/Body/Left/LeftSide';
+import RightSide from '../components/Body/Right/RightSide';
 import general from '../styles/general.module.css'
 
 import styles from '../styles/Home.module.css'
