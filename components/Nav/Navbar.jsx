@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import navStyles from "./Navbar.module.css";
-import Logo from "../Logo/Logo"
+import logo from "../images/logo4.png"
 import profilePic from "../images/user.png"; 
 
 
@@ -16,10 +16,10 @@ const [showMe, setShowMe] = useState(false);
   return (
     <>
     <nav className={navStyles.navbar} > 
-      <Link href="/">
-        <a id="logo">
-          <Logo />
-        </a> 
+      <Link href="/" id="brand"> 
+        <a id="brand">
+          <Image src={logo} alt=" EDU Logo" height={90} width={100}/> 
+        </a>
       </Link>
       <ul className={navStyles.links}>
         <li className={navStyles.navlink}>
