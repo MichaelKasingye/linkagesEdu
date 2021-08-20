@@ -1,0 +1,42 @@
+.footer {
+  padding: 20px 0;
+  background-color: #096691;
+  color: #ffffff;
+}
+.footer h2 {
+  text-align: center;
+}
+.flex1 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.flex1 > button {
+  margin: 10px;
+}
+.button1 {
+  padding: 10px 12px;
+  background: transparent;
+  border-radius: 5px;
+  width: 177px;
+  border: 1px solid #ffffff;
+}
+.button2 {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  width: 177px;
+  background: #0081fe;
+}
+.flex2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.flex2 h4 {
+}
+
+.copysection {
+  display: flex;
+  justify-content: space-around;
+}
