@@ -1,0 +1,11 @@
+.skills-section{
+    justify-content: left;
+}
+
+.skills{
+display: inline;
+}
+
+.skill{
+    width: fit-content;
+}
