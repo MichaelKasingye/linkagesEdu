@@ -7,6 +7,7 @@ function RightSide() {
         <section className={rightCss.right}>
 
        <TitleRight title= "Job Opportunities"/>
+        
         </section>
     )
 }
