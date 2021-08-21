@@ -1,38 +1,9 @@
-/* Style the search field */
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
+ #profile-header{
+   display: flex;
+   flex-direction: column;
+ }
 
-/* Style the submit button */
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #096691;
-  color: white;
-  font-size: 17px; 
-  cursor: pointer;
-  border-radius: 10px 10px 10px 10px;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-  width:50%;
-  position: absolute; 
-  left: auto; 
-}
+ .p{
+   line-height: 0.5;
+   float:right;
+ }

@@ -1,18 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from "./ProfileHeader.module.css";
+import userProfilePic from "../images/user.png"
 
-export default function ProfleHeader( name, email, phoneNumber, profilePic) {
+export default function ProfleHeader(profileDetails) {
     return (
-        <div id="user_header">
-            <div className={styles.card}> 
-                <p className={styles.p}>{name}</p>
-                <p className={styles.p}>{email}</p>
-                <p className={styles.p}>{phoneNumber}</p>
-                <p className={styles.p}>{title}</p>  
+        <div id="profile-header">
+            <div className={styles.colomn}> 
+                <p className={styles.p}>{profileDetails.name}</p> 
+                <p className={styles.p}>{profileDetails.title}</p>  
+                <p className={styles.p}>{profileDetails.phoneNumber}</p>
+                <p className={styles.p}>{profileDetails.email}</p> 
             </div>  
             <div>
-                <Image src={userProfilePic} alt={name} width={150}  height={150} className={styles.img}/>
+                <Image src={userProfilePic} alt="name" width={150}  height={150}/>
             </div>
        
         </div> 
