@@ -1,6 +1,6 @@
 import React from "react";
-import LeftSide from "../components/LeftMenu/LeftMen";
-import RightSide from "../components/Right/RightBody/RightSide";
+import LeftSide from "../components/LeftMenu/LeftMenu";
+import RightSide from "../components/JobOpportunities/Right/RightSide";
 import general from "../styles/general.module.css";
 import Link from "next/link";
 

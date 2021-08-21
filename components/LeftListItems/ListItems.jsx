@@ -1,16 +1,17 @@
-import React from 'react'
-import Link from 'next/link'
-import listItems from './ListItems.module.css';
+import React from "react";
+import Link from "next/link";
+import listItems from "./ListItems.module.css";
 
-function ListItems() {
-  
-    return (
-        <div className={listItems.list}>
-           <ul>
-               <li><Link href="/">Full Stack</Link></li> 
-               </ul> 
-        </div>
-    )
+function ListItems(props) {
+  return (
+    <div className={listItems.list}>
+      <ul>
+        <li>
+          <Link href={props.link}>{props.list}</Link>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
-export default ListItems
+export default ListItems;

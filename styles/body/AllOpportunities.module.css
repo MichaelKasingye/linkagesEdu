@@ -1,0 +1,15 @@
+.allApportunities h2 {
+  text-align: center;
+  color: #2980b9;
+}
+.flexitem {
+  margin: "10px 45px";
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flexitem > div {
+  flex-basis: 33.333333%;
+}
