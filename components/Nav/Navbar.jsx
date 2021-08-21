@@ -23,20 +23,20 @@ const [showMe, setShowMe] = useState(false);
       </Link>
       <ul className={navStyles.links}>
         <li className={navStyles.navlink}>
-          <Link href="/enrollment">Enrollment</Link>
+          <Link href="/">Enrollment</Link>
         </li>
         <li className={navStyles.navlink}>
-          <Link href="/learning">Learning</Link>
+          <Link href="/">Learning</Link>
         </li>
         <li className={`${navStyles.navlink} ${navStyles.active}`}>
           <Link href="/linkages">Linkages</Link>
         </li>
         <li className={navStyles.navlink}>
-          <Link href="/events">Events</Link>
+          <Link href="/">Events</Link>
         </li>
       </ul> 
-      <Link href ="" className={navStyles.user}>
-        <a  onClick={toggle}>
+      <Link href ="">
+        <a  onClick={toggle}  className={navStyles.user}>
           <a>Name</a>
           <Image src={profilePic} alt="Profile pic" width={35}  height={35} className={navStyles.img} />
         </a> 
