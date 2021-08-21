@@ -1,5 +1,5 @@
 .border{
-    border: 2px solid red;
+    border-bottom: 2px solid #41AD48;
     max-width: 800px;
     margin-left: 30px;
 }
