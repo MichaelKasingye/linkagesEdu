@@ -1,11 +1,20 @@
-.skills-section{
-    justify-content: left;
-}
-
 .skills{
-display: inline;
+    justify-content: left;
+    margin: 10px 30px;
 }
 
-.skill{
-    width: fit-content;
+.title{
+    color:#096691;
+    text-transform:capitalize;
+}
+
+.skillTags{
+    line-height: 0.5;
+    margin-bottom: 30px;
+}
+
+.skill{  
+    display: inline;
+    margin-right: 20px;
+    text-transform:uppercase;
 }

@@ -1,15 +1,14 @@
 import React from 'react'
-import styles from './Skills.module.css';
-import TitleRight from '../TitleRight/TitleRight';
+import styles from './Skills.module.css'; 
 
-export default function Skills(title, allSkills) {
+export default function Skills(skillsTitle, allSkills) {
     return (
-        <div className={styles.skills-section}>
-            <TitleRight />
-            <div className={styles.skills}>
-                {allskills.map((skill) =>
-                    <p key={skill.id} className={styles.skill}>{skill.name}</p>
-                )}      
+        <div className={styles.skills}>
+            <h4 className={styles.title}>{skillsTitle}</h4> 
+            <div className={styles.skillTags}> 
+               {allSkills.map(skill=>{  
+                    <p className={styles.skill}>{skill}</p> 
+               })}  
             </div>
             
         </div>
