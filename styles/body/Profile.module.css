@@ -1,0 +1,11 @@
+ .container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+} 
+
+.border{
+    border-bottom: 2px solid #A82E2E; 
+    margin-left: 20%;
+}
+ 

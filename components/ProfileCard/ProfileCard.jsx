@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function ProfileCard({name, title}) {
     return (
-        <Link href="#">
+        <Link href="/profile">
         <a className={styles.card}>
             <Image src={userProfilePic} alt={name} width={150}  height={150} className={styles.img}/>
             <p className={styles.p}>{name}</p>

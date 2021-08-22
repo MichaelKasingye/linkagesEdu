@@ -1,9 +1,22 @@
- #profile-header{
-   display: flex;
-   flex-direction: column;
+.profileHeader{ 
+padding:20px;
+display: flex; 
+align-items: center;  
+ }
+
+ .details{
+ float: left;
+ text-align: right;
+ width: 70%;
+ margin-right: 20px;
+ }
+
+ .img{ 
+  vertical-align: middle
  }
 
  .p{
-   line-height: 0.5;
-   float:right;
+   line-height: 1;
+   color:#096691;
+   font-weight: 500;
  }

@@ -1,6 +1,7 @@
 .skills{
     justify-content: left;
-    margin: 10px 30px;
+    margin: 5px 20px; 
+    margin-left: 30px;
 }
 
 .title{
@@ -9,12 +10,12 @@
 }
 
 .skillTags{
-    line-height: 0.5;
+    line-height: 1.5;
     margin-bottom: 30px;
 }
 
 .skill{  
     display: inline;
     margin-right: 20px;
-    text-transform:uppercase;
+    color: #636E72; 
 }
