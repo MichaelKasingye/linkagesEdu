@@ -6,6 +6,20 @@
 
 .border{
     border-bottom: 2px solid #A82E2E; 
-    margin-left: 20%;
+    margin-left: 20%; 
+    margin-bottom: 20px;
 }
  
+.allProjects{
+margin-bottom: 50px;
+margin-top: 30px;
+}
+
+ .flexitem {
+  margin: "20px 45px";
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}

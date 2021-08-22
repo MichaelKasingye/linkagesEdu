@@ -2,16 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import styles from "./ProjectCard.module.css"
-//import profilePic from "../images/user.png";
+import projectImage from "../images/user.png";
 
-export default function ProfileCard(projectDetails) {
+export default function ProfileCard({projectName, projectLink, projectDescription}) {
     return (
         <div className={styles.projectcard}>
-            <Link href={projectDetails.projectLink}>
+            <Link href={projectLink}>
                 <a>
-                    <Image src={projectDetails.projectImage} alt={projectDetails.projectName} width={150}  height={150} className={styles.img}/>
-                    <p className={styles.title}>{projectDetails.projectName}</p>
-                    <p className={styles.p}>{projectDetails.projectDescription}</p> 
+                    <Image src={projectImage} alt={projectName} width={240}  height={180} className={styles.img}/>
+                    <p className={styles.title}>{projectName}</p>
+                    <p className={styles.p}>{projectDescription}</p> 
                 </a>
             </Link>
         </div>
