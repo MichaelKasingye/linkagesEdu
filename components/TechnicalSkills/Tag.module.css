@@ -1,0 +1,9 @@
+.ulElement {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+.ulElement li {
+  list-style-type: none;
+  color: #636e72;
+}
