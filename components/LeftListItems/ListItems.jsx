@@ -2,12 +2,13 @@ import React from 'react'
 import Link from 'next/link'
 import listItems from './ListItems.module.css';
 
-function ListItems() {
+function ListItems(props) {
   
     return (
         <div className={listItems.list}>
            <ul>
-               <li><Link href="/">Full Stack</Link></li> 
+               {/* {console.log(props.link)} */}
+               <li><Link href={props.link}>{props.list}</Link></li> 
                </ul> 
         </div>
     )

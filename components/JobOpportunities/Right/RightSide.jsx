@@ -22,7 +22,7 @@ function RightSide() {
         <FormsText shortDes="info" title="title"/>
         <FormsTextArea longDes="text Area"  title="title"/>
 
-        <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" />
+        <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Modal"/>
 
        <ButtonFilled text = "button1" onClick={()=>alert("FIlled button1")}/>
        <ButtonOutlined text = "button2" onClick={()=>alert("Outlined button2")}/>

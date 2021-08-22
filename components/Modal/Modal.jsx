@@ -41,7 +41,9 @@ function ModalComp(props) {
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
-  
+    const [name, setName] = React.useState("");
+    // setName(props.name)
+
     const handleOpen = () => {
       setOpen(true);
     };
@@ -67,6 +69,9 @@ function ModalComp(props) {
         </div>  
 
     )
+    const ModalButton = (
+      <ButtonFilled text = {props.label} onClick={handleOpen}/>
+    )
 
     return (
         <div className={ModalCss.wrapper}>
@@ -76,7 +81,7 @@ function ModalComp(props) {
          {/* <button type="button" onClick={handleOpen}>
         Open Modal
       </button> */}
-      <ButtonFilled text = "Open Modal" onClick={handleOpen}/>
+         <ButtonFilled text = {props.label} onClick={handleOpen}/>
       <Modal
         open={open}
         onClose={handleClose}
