@@ -1,47 +1,63 @@
 import React, { useState } from "react";
 import TitleRight from "../../TitleRight/TitleRight";
 import SearchBar from "../../SearchBar/SearchBar";
-import { FormsText, FormsTextArea } from "../../Forms/Forms";
-
+import opportStyles from "../../../styles/body/AllOpportunities.module.css";
 import rightCss from "../../../styles/body/RightBody.module.css";
-import Modal from "../../Modal/Modal";
-import { ButtonFilled, ButtonOutlined } from "../../Button/Button";
-import Paragraph from "../../Paragraph/Paragraph";
-import Border from "../../Border/Border";
 import OpportunityCard from "../../Opportunity/OpportunityCard";
+
+const opport = [
+  {
+    key: "1",
+    jobTitle: "Senior Fronted",
+    company: "Outbox Uganda",
+    location: "Kampala",
+    paragraph:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,  slightly believable. If you are going to use a passage of Lorem Ipsum",
+    deadline: "21/08/2021",
+  },
+  {
+    key: "1",
+    jobTitle: "Senior Fronted",
+    company: "Outbox Uganda",
+    location: "Kampala",
+    paragraph:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,  slightly believable. If you are going to use a passage of Lorem Ipsum",
+    deadline: "21/08/2021",
+  },
+  {
+    key: "1",
+    jobTitle: "Senior Fronted",
+    company: "Outbox Uganda",
+    location: "Kampala",
+    paragraph:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,  slightly believable. If you are going to use a passage of Lorem Ipsum",
+    deadline: "21/08/2021",
+  },
+];
 
 function RightSide() {
   return (
     <section className={rightCss.right}>
-      {/* <TitleRight title="Job Opportunities" />
+      <TitleRight title="Job Opportunities" />
       <SearchBar
         placeholder="Search.."
         onClick={() => alert("Search button")}
-      /> */}
-      {/* <FormsText shortDes="info" title="title" />
-      <FormsTextArea longDes="text Area" title="title" />
-
-      <Modal title="Delete" body="Are you sure" yes="yes" no="no" ok="Ok" />
-
-      <ButtonFilled text="button1" onClick={() => alert("FIlled button1")} />
-      <ButtonOutlined
-        text="button2"
-        onClick={() => alert("Outlined button2")}
       />
-      <Border /> */}
-      {/* {opport.map(
+
+      {opport.map(
         ({ key, jobTitle, company, location, paragraph, deadline }) => (
-          <OpportunityCard
-            key={key}
-            jobTitle={jobTitle}
-            company={company}
-            location={location}
-            paragraph={paragraph}
-            deadline={deadline}
-          />
+          <div key={key} className={opportStyles.flexitem}>
+            <OpportunityCard
+              key={key}
+              jobTitle={jobTitle}
+              company={company}
+              location={location}
+              paragraph={paragraph}
+              deadline={deadline}
+            />
+          </div>
         )
-      )} */}
-      {/* <Paragraph text="THis is a paragraph" /> */}
+      )}
     </section>
   );
 }
