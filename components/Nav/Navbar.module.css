@@ -1,5 +1,5 @@
 .navbar {
-  height: 20vh;
+  height: 15vh;
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -16,19 +16,23 @@
 }
 .navlink {
   list-style: none;
-  margin: 0 0.5rem;   
+  margin: 0 1.5rem;   
   font-weight: 400;
+  font-size: 20px;
   color: black;
 }
 .navlink:hover, .active{
   color: #096691;
 } 
 
-.name{  
-  margin-right: 0.2rem; 
+.user{
+display: flex;
+align-items: center;
 }
+ 
 .img{      
-  border-radius: 50%;   
+  border-radius: 50%; 
+  display: inline;  
 }
  .menu{  
     line-height: 20px;
