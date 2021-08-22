@@ -55,15 +55,21 @@ function RightSide() {
         <BioParagraph text="Diligent software developer with experience in web applications development. Am a graduate of OUTBOX EDU." />
       </div>
       <Border />
-      <TitleRight title="Technical Skills" />
-      <SkillsTags skillsTitle="technical skills" allSkills={techSkills} />
+      <div>
+        <TitleRight title="Technical Skills" />
+        <SkillsTags allSkills={techSkills} />
+      </div>
       <Border />
-      <TitleRight title="Other Skills" />
-      <SkillsTags skillsTitle="other skills" allSkills={otherSkills} />
+      <div>
+        <TitleRight title="Other Skills" />
+        <SkillsTags allSkills={otherSkills} />
+      </div>
       <Border />
-      <TitleRight title="Certifications" />
-      <SkillsTags skillsTitle="certications" allSkills={certificates} />
-       <Border />
+      <div>
+        <TitleRight title="Certifications" />
+        <SkillsTags allSkills={certificates} />
+      </div>
+      <Border />
       <div className={profileStyle.allProjects}>
         <TitleRight title="Portfolio" />
         <div className={profileStyle.flexitem}>
