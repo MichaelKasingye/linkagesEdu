@@ -51,7 +51,8 @@ function ModalComp(props) {
     const handleClose = () => {
       setOpen(false);
     };
-  
+    
+  //MODAL BODY
     const body = (
       <div style={modalStyle} className={classes.paper}>
         <h2 id="simple-modal-title"> {props.title}</h2>

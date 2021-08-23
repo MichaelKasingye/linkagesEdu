@@ -4,11 +4,15 @@ import SearchBar from "../../SearchBar/SearchBar";
 import opportStyles from "../../../styles/body/AllOpportunities.module.css";
 import rightCss from "../../../styles/body/RightBody.module.css";
 import OpportunityCard from "../../Opportunity/OpportunityCard";
+import ModalJobOpportunities from "../../ModalJobOpportunities/Modal";
+
+
+
 
 const opport = [
   {
     key: "1",
-    jobTitle: "Senior Fronted",
+    jobTitle: "Junior Fronted",
     company: "Outbox Uganda",
     location: "Kampala",
     paragraph:
@@ -17,7 +21,7 @@ const opport = [
   },
   {
     key: "1",
-    jobTitle: "Senior Fronted",
+    jobTitle: "Office Fronted",
     company: "Outbox Uganda",
     location: "Kampala",
     paragraph:
@@ -26,7 +30,7 @@ const opport = [
   },
   {
     key: "1",
-    jobTitle: "Senior Fronted",
+    jobTitle: "Exct Fronted",
     company: "Outbox Uganda",
     location: "Kampala",
     paragraph:
@@ -58,6 +62,43 @@ function RightSide() {
           </div>
         )
       )}
+
+
+
+<div className={opportStyles.flexitem}>
+
+
+
+
+{opport.map(
+        ({ key, jobTitle, company, location, paragraph, deadline }) => (
+          <div key={key} >
+            {/* <OpportunityCard
+              key={key}
+              jobTitle={jobTitle}
+              company={company}
+              location={location}
+              paragraph={paragraph}
+              deadline={deadline}
+            /> */}
+<ModalJobOpportunities
+ label="Apply"
+ key={key} 
+ jobTitle={jobTitle} 
+ company={company} 
+ location={location} 
+ JobDescription={paragraph}
+ requiredQualifications={paragraph} 
+ jobCategories={jobTitle} 
+ deadline={deadline}/>
+          </div>
+        )
+      )}
+
+
+         
+</div>
+
     </section>
   );
 }
