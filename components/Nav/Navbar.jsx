@@ -16,10 +16,10 @@ const [showMe, setShowMe] = useState(false);
   return (
     <>
     <nav className={navStyles.navbar} > 
-      <Link href="/" id="brand"> 
-        <a id="brand">
+      <Link href="/"  id="brand"> 
+        <div id="brand">
           <Image src={logo} alt=" EDU Logo" height={90} width={100}/> 
-        </a>
+        </div>
       </Link>
       <ul className={navStyles.links}>
         <li className={navStyles.navlink}>
@@ -35,12 +35,12 @@ const [showMe, setShowMe] = useState(false);
           <Link href="/">Events</Link>
         </li>
       </ul> 
-      <Link href ="/profile">
-        <a  onClick={toggle}  className={navStyles.user}>
-          <p>John</p>
+      <div className={navStyles.user}>
+        <div  onClick={toggle}>
+          <div>John</div>
           <Image src={profilePic} alt="Profile pic" width={35}  height={35} className={navStyles.img} />
-        </a> 
-      </Link> 
+        </div> 
+      </div> 
     </nav>
      <div style={{ display: showMe?"block":"none"}} 
      className={navStyles.menu}>

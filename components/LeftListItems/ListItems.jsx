@@ -2,16 +2,16 @@ import React from "react";
 import Link from "next/link";
 import listItems from "./ListItems.module.css";
 
-function ListItems({menuItems}) {
+function ListItems(props) {
   return (
     <div className={listItems.list}>
-      <ul> {menuItems.map((menuItem, index)=> (
-          <li key={index}>
-          <Link  href={menuItem.link} >{menuItem.item}</Link>
+      {/* <ul> {menuItems.map((menuItem, index)=> ( */}
+          <li >
+          <Link  href={props.link} >{props.list}</Link>
         </li>
-         )
-        )} 
-      </ul>
+         {/* ) */}
+        {/* )}  */}
+      {/* </ul> */}
     </div>
   );
 }

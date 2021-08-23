@@ -36,10 +36,23 @@ const jobMenu = [
 function LeftMenu() {
   return (
     <div className={LeftMenuCss.left}>
-      <LeftTitle title="Settings" />
+      {/* <LeftTitle title="Settings" />
       <ListItems menuItems={profileMenu} />
       <LeftTitle title="Opportunities" />
-      <ListItems menuItems={jobMenu} />
+      <ListItems menuItems={jobMenu} /> */}
+
+
+      <LeftTitle title="Settings" />
+      <ListItems list="Edit profile" link="/" />
+      <ListItems list="View profile" link="/" />
+      <ListItems list="Delete profile" link="/" />
+      <ListItems list="Create profile" link="/" />
+
+      <LeftTitle title="Opportunities" />
+      <ListItems list="View Job Offer" link="/" />
+      <ListItems list="All profiles" link="/allProfiles" />
+     
+
     </div>
   );
 }
