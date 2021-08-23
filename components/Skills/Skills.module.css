@@ -1,20 +1,19 @@
-.skills{
-    justify-content: left;
-    margin: 10px 30px;
-}
-
+ 
 .title{
     color:#096691;
     text-transform:capitalize;
+    margin-bottom: 5px;
 }
 
 .skillTags{
-    line-height: 0.5;
-    margin-bottom: 30px;
+    justify-content: left;  
+    margin-left: 30px;
+    line-height: 1.5;
+    margin-bottom: 50px;
 }
 
 .skill{  
     display: inline;
     margin-right: 20px;
-    text-transform:uppercase;
+    color: #636E72; 
 }

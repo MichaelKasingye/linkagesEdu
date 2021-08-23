@@ -35,16 +35,16 @@ const [showMe, setShowMe] = useState(false);
           <Link href="/">Events</Link>
         </li>
       </ul> 
-      <Link href ="">
+      <Link href ="/profile">
         <a  onClick={toggle}  className={navStyles.user}>
-          <a>Name</a>
+          <p>John</p>
           <Image src={profilePic} alt="Profile pic" width={35}  height={35} className={navStyles.img} />
         </a> 
       </Link> 
     </nav>
      <div style={{ display: showMe?"block":"none"}} 
      className={navStyles.menu}>
-            <p className={navStyles.menuitem} ><Link  href="/profile/view">View Profile</Link></p>
+            <p className={navStyles.menuitem} ><Link  href="/profile">View Profile</Link></p>
             <p className={navStyles.menuitem} ><Link href="/logout">Logout</Link></p>
       </div> 
     </>
