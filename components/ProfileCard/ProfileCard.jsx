@@ -1,14 +1,17 @@
 import React from 'react'
 import Image from "next/image";
 import styles from "./ProfileCard.module.css"
-//import profilePic from "../images/user.jpg";
+import userProfilePic from "../images/user.png";
+import Link from 'next/link';
 
-export default function ProfileCard(name, title,userProfilePic) {
+export default function ProfileCard({name, title}) {
     return (
-        <div className={styles.card}>
+        <Link href="/profile">
+        <a className={styles.card}>
             <Image src={userProfilePic} alt={name} width={150}  height={150} className={styles.img}/>
             <p className={styles.p}>{name}</p>
             <p className={styles.p}>{title}</p>  
-        </div>
+        </a>
+        </Link>
     )
 }

@@ -44,7 +44,7 @@ const [showMe, setShowMe] = useState(false);
     </nav>
      <div style={{ display: showMe?"block":"none"}} 
      className={navStyles.menu}>
-            <p className={navStyles.menuitem} ><Link  href="/profile/view">View Profile</Link></p>
+            <p className={navStyles.menuitem} ><Link  href="/profile">View Profile</Link></p>
             <p className={navStyles.menuitem} ><Link href="/logout">Logout</Link></p>
       </div> 
     </>

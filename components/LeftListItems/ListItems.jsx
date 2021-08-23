@@ -5,11 +5,13 @@ import listItems from "./ListItems.module.css";
 function ListItems(props) {
   return (
     <div className={listItems.list}>
-      <ul>
-        <li>
-          <Link href={props.link}>{props.list}</Link>
+      {/* <ul> {menuItems.map((menuItem, index)=> ( */}
+          <li >
+          <Link  href={props.link} >{props.list}</Link>
         </li>
-      </ul>
+         {/* ) */}
+        {/* )}  */}
+      {/* </ul> */}
     </div>
   );
 }

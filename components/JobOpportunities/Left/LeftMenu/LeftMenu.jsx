@@ -5,8 +5,16 @@ import ListItems from "../../../LeftListItems/ListItems";
 function LeftMenu() {
   return (
     <div className={LeftMenuCss.left}>
+      
       <LeftTitle title="Search" />
-      <ListItems list="full stack" link="/fullstack" />
+      <ListItems list="Full stack" link="/" />
+      <ListItems list="Backend" link="/" />
+      <ListItems list="Frontend" link="/" />
+      <ListItems list="Ui/ Ux Developer" link="/" />
+
+      <LeftTitle title="Opportunities" />
+      <ListItems list="View Job Offer" link="/" />
+      <ListItems list="All profiles" link="/allProfiles" />
     </div>
   );
 }

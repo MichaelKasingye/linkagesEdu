@@ -1,21 +1,12 @@
-import React from "react";
-import LeftSide from "../components/LeftMenu/LeftMenu";
-import RightSide from "../components/JobOpportunities/Right/RightSide";
-import general from "../styles/general.module.css";
-import Link from "next/link";
-
-function course() {
+import React from 'react'
+import LeftSide from "../components/PersonalProfile/Left/LeftSide";
+import RightSide from "../components/PersonalProfile/Right/RightSide";  
+import style from "../styles/body/Profile.module.css";
+export default function profile() {
   return (
-    <div className={general.wrapper}>
+ <div className={style.container}>
       <LeftSide />
-      <RightSide />
-      <h1>All Opportunities</h1>
-      <button>
-        {" "}
-        <Link href="/profile">create profile</Link>{" "}
-      </button>
+      <RightSide /> 
     </div>
-  );
-}
-
-export default course;
+  )
+} 
