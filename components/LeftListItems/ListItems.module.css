@@ -1,3 +1,7 @@
+.list ul{
+line-height: 2;
+}
+
 .list li{
     list-style: none;
     color: #405467;

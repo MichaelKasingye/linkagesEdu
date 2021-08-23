@@ -30,7 +30,7 @@ const jobMenu = [
   {
     item: "Offers",
     link: "/allOpportunities",
-  }, 
+  },
 ];
 
 function LeftMenu() {

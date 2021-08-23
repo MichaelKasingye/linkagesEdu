@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../Logo/Logo';
-import LeftMenu from '../../LeftMenu/LeftMenu';
+import LeftMenu from './LeftMenu/LeftMenu';
 import leftCss from '../../../styles/body/LeftSide.module.css';
 
 function LeftSide() {
