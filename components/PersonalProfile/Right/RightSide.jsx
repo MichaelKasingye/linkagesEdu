@@ -21,26 +21,26 @@ const profileDetails = {
   name: "John Magale",
   title: "FullStack Developer",
   phoneNumber: "0700-000000",
-  email: "jb@email.com",
+  email: "john@email.com",
 };
 
 const projectDetails = [
   {
     key: "1",
-    projectName: "John Magale",
-    projectDescription: "FullStack Developer",
+    projectName: "Food app",
+    projectDescription: "Allows to make orders for foods online",
     projectLink: "/",
   },
   {
     key: "2",
-    projectName: "John Magale",
-    projectDescription: "FullStack Developer",
+    projectName: "Food delivery",
+    projectDescription: "Allows to make orders for foods online",
     projectLink: "/",
   },
   {
     key: "3",
-    projectName: "John Magale",
-    projectDescription: "FullStack Developer",
+    projectName: "Food website",
+    projectDescription: "Allows to make orders for foods online",
     projectLink: "/",
   },
 ];

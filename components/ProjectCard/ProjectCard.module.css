@@ -1,7 +1,7 @@
 .projectcard { 
   box-shadow: 4px 2px 8px 2px rgba(0.1, 0.1, 0.1, 0.2);
-  width: 30%; 
-  height: 250px;
+  width: 160px; 
+  height:max-content;
   padding: 0.2rem;
   margin: 0.5rem;
   line-height: 0.2;
@@ -11,8 +11,7 @@
   cursor:pointer;
 }
 .img{
-vertical-align: middle;
-padding-right: 5px;
+vertical-align: middle; 
 } 
 
  .title{
@@ -20,6 +19,9 @@ padding-right: 5px;
    font-weight: bold;
    text-align: center;
  }
- .description{
-   padding-top: 0; 
+ .description{ 
+   text-align: justify;
+   font-size: 14px;
+   line-height: 1.2;  
+   padding: 0 10px;
  }

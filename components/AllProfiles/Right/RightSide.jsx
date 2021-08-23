@@ -9,33 +9,33 @@ import profileStyles from "../../../styles/body/AllProfiles.module.css";
 const profileDetails = [
   {
     key: "1", 
-    name: "John Magale",
+    name: "John Magale ",
     title: "FullStack Developer",
   },
   {
     key: "2",
-    name: "John Magale",
-    title: "FullStack Developer",
+    name: "John Magale 2",
+    title: "Backend Developer",
   },
   {
     key: "3",
-   name: "John Magale",
-    title: "FullStack Developer",
+   name: "John Magale 3",
+    title: "UI/UX Designer",
   },
   {
     key: "4",
-   name: "John Magale",
-    title: "FullStack Developer",
+   name: "John Magale 4",
+    title: "Frontend Developer",
   },
   {
     key: "5",
-  name: "John Magale",
-    title: "FullStack Developer",
+  name: "John Magale 5",
+    title: "JavaScript Developer",
   },
   {
     key: "6",
-  name: "John Magale",
-    title: "FullStack Developer",
+  name: "John Magale 6",
+    title: "React Developer",
   },
 ];
 
