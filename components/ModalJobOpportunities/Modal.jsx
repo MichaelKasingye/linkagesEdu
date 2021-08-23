@@ -6,7 +6,7 @@ import { ButtonFilled, ButtonOutlined } from '../Button/Button';
 import OpportunityCard from '../Opportunity/OpportunityCard';
 import opportStyles from "../../styles/body/AllOpportunities.module.css";
 import CardStyles from "../Opportunity/Opportunity.module.css";
-
+import Link from 'next/link'
 // import TitleRight from '../TitleRight/TitleRight';
 
 
@@ -117,8 +117,9 @@ function ModalComp(props) {
     </div>
 
         {/* <ModalComp /> */}
-        
+        <Link href="/jobapplicationform">
       <ButtonFilled text = {props.label} onClick={handleClose}/>
+        </Link>
 
         </div>  
         

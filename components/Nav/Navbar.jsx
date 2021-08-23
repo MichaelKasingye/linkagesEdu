@@ -37,7 +37,7 @@ const [showMe, setShowMe] = useState(false);
       </ul> 
       <div className={navStyles.user}>
         <div  onClick={toggle}>
-          <div>Name</div>
+          <div>John</div>
           <Image src={profilePic} alt="Profile pic" width={35}  height={35} className={navStyles.img} />
         </div> 
       </div> 

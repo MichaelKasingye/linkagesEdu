@@ -17,30 +17,32 @@ import { ButtonFilled } from '../../Button/Button';
 function RightSide() {
 
     const [coName, setCoName] = useState('');
-    const [job, setJob] = useState('');
-    const [location, setLocation] = useState('');
+    const [ajob, setAJob] = useState('');
+    const [alocation, setALocation] = useState('');
     const [jobdescription, setJobdescription] = useState('');
     const [qualifications, setQualifications] = useState('');
     const [category, setCategory] = useState('');
     const [Deadline, setDeadline] = useState('');
+    
+    const [alljobs, setAlljobs] = useState('');
    
 
 
-    useEffect(() => {
-       db.collection('jobs').onSnapshot(snapshot => {
-           console.log(snapshot.docs.map(doc => doc.data()));
-           setCoName(snapshot.docs.map(doc => doc.data().coName));
-           setJob(snapshot.docs.map(doc => doc.data().jobTitle))
-           setLocation(snapshot.docs.map(doc => doc.data().location))
-           setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
-           setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
-           setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
-           setDeadline(snapshot.docs.map(doc => doc.data().deadline))
+    // useEffect(() => {
+    //    db.collection('jobs').onSnapshot(snapshot => {
+    //        console.log(snapshot.docs.map(doc => doc.data()));
+    //        setCoName(snapshot.docs.map(doc => doc.data().coName));
+    //        setJob(snapshot.docs.map(doc => doc.data().jobTitle))
+    //        setLocation(snapshot.docs.map(doc => doc.data().location))
+    //        setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
+    //        setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
+    //        setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
+    //        setDeadline(snapshot.docs.map(doc => doc.data().deadline))
 
-       })
-        return () => {
-        };
-        }, []);
+    //    })
+    //     return () => {
+    //     };
+    //     }, []);
 
         function postJob(event) {
             event.preventDefault();
@@ -69,21 +71,34 @@ function RightSide() {
 
     return (
         <section className={rightCss.right}>
-       <TitleRight title= "Job Opportunities" />
+       <TitleRight title= "Job Application Form" />
        {/* <SearchBar placeholder="Search.." onClick={()=>alert("Search button")}/> */}
 
-        <FormsText placeholder="Name" title="Company Name" input={coName} handler={(e) => setCoName(e.target.value)}/>
-        <FormsText placeholder="Job" title="Job Title" input={job} onChange={(e) => setJob(e.target.value)}/>
-        <FormsText placeholder="Location" title="Location" input={location} onChange={(e) => setLocation(e.target.value)}/>
+       <form className={rightCss.FormsText}>
 
-        <FormsTextArea placeholder="Description"  title="Job description" input={jobdescription} handler={(e) => setJobdescription(e.target.value)}/>
-        <FormsTextArea placeholder="Qualifications"  title="Required Qualifications" input={qualifications} handler={(e) => setQualifications(e.target.value)}/>
+            <label >First Name</label>
+            <input type="text" placeholder="Name" value={coName} onChange={(e) => setCoName(e.target.value)}/>  
 
-        <FormsTextArea placeholder="Category"  title="Job Category" input={category} handler={(e) => setCategory(e.target.value)}/>
-        <FormsText placeholder="Deadline"  title="Deadline" input={Deadline} handler={(e) => setDeadline(e.target.value)}/>
+            <label >Email</label>
+            <input type="text" placeholder="Job"  value={ajob} onChange={(e) => setAJob(e.target.value)}/> 
 
-        {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
-        <ButtonFilled text = "Post" onClick={postJob}/>
+            <label >Short description about you</label>
+            <textarea  rows="4" cols="50" placeholder="Description"  value={jobdescription}  onChange={(e) => setJobdescription(e.target.value)}/> 
+
+            <label >Upload CV</label>
+            <ButtonFilled text = "Upload" />
+
+
+            <label >Web site /portfolio/ github Link</label>
+            <input type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)}/> 
+
+            <label >LinkedIn LInk</label>
+            <input type="text" placeholder="Deadline" value={Deadline} onChange={(e) => setDeadline(e.target.value)}/> 
+
+            
+                
+            </form>         {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
+        <ButtonFilled text = "Submit" onClick={postJob}/>
         </section>
     )
 }

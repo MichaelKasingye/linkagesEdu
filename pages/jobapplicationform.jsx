@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftSide from '../components/Jobpostingform/Left/LeftSide';
-import RightSide from '../components/Jobpostingform/Right/RightSide';
+import LeftSide from '../components/JobApplicationForm/Left/LeftSide';
+import RightSide from '../components/JobApplicationForm/Right/RightSide';
 // import general from '../styles/general.module.css'
 
 import styles from '../styles/Home.module.css'
