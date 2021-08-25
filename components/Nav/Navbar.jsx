@@ -15,38 +15,48 @@ const [showMe, setShowMe] = useState(false);
 
   return (
     <>
-    <nav className={navStyles.navbar} > 
-      <Link href="/"  id="brand"> 
-        <div id="brand">
-          <Image src={logo} alt=" EDU Logo" height={90} width={100}/> 
-        </div>
-      </Link>
-      <ul className={navStyles.links}>
-        <li className={navStyles.navlink}>
-          <Link href="/">Enrollment</Link>
-        </li>
-        <li className={navStyles.navlink}>
-          <Link href="/">Learning</Link>
-        </li>
-        <li className={`${navStyles.navlink} ${navStyles.active}`}>
-          <Link href="/linkages">Linkages</Link>
-        </li>
-        <li className={navStyles.navlink}>
-          <Link href="/">Events</Link>
-        </li>
-      </ul> 
-      <div className={navStyles.user}>
-        <div  onClick={toggle}>
-          <div>John</div>
-          <Image src={profilePic} alt="Profile pic" width={35}  height={35} className={navStyles.img} />
-        </div> 
-      </div> 
-    </nav>
-     <div style={{ display: showMe?"block":"none"}} 
-     className={navStyles.menu}>
-            <p className={navStyles.menuitem} ><Link  href="/profile">View Profile</Link></p>
-            <p className={navStyles.menuitem} ><Link href="/logout">Logout</Link></p>
-      </div> 
+      <nav className={navStyles.navbar}>
+        <Link href="/" >
+          <div className={navStyles.brand}>
+            <Image src={logo} alt=" EDU Logo" height={90} width={100} />
+          </div>
+        </Link>
+        <ul className={navStyles.links}>
+          <li className={navStyles.navlink}>
+            <Link href="/">Enrollment</Link>
+          </li>
+          <li className={navStyles.navlink}>
+            <Link href="/">Learning</Link>
+          </li>
+          <li className={`${navStyles.navlink} ${navStyles.active}`}>
+            <Link href="/">Linkages</Link>
+          </li>
+          <li className={navStyles.navlink}>
+            <Link href="/">Events</Link>
+          </li>
+        </ul> 
+          <div className={navStyles.user} onClick={toggle}>
+            <div className={navStyles.name}>John</div>
+            <Image
+              src={profilePic}
+              alt="Profile pic"
+              width={45}
+              height={45}
+              className={navStyles.img}
+            />
+          </div> 
+      </nav>
+      <div
+        style={{ display: showMe ? "block" : "none" }}
+        className={navStyles.menu}
+      >
+        <p className={navStyles.menuitem}>
+          <Link href="/profile">View Profile</Link>
+        </p>
+        <p className={navStyles.menuitem}>
+          <Link href="/logout">Logout</Link>
+        </p>
+      </div>
     </>
   );
 };
