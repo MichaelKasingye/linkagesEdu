@@ -4,7 +4,9 @@ export default function Unordered({ listItem }) {
   return (
     <div className={listStyle.item}>
       <ul>
-        <li>{listItem}</li>
+        {listItem.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </ul>
     </div>
   );
