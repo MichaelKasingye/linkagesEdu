@@ -9,7 +9,7 @@ export default function ProfileCard({projectName, projectLink, projectDescriptio
         <div className={styles.projectcard}>
             <Link href={projectLink}>
                 <a>
-                    <Image src={projectImage} alt={projectName} width={160}  height={120} className={styles.img}/>
+                    <Image src={projectImage} alt={projectName} width={300}  height={200} className={styles.img}/>
                     <p className={styles.title}>{projectName}</p>
                     <p className={styles.description}>{projectDescription}</p> 
                 </a>

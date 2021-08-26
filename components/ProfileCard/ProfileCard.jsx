@@ -8,7 +8,7 @@ export default function ProfileCard({name, title}) {
     return (
         <Link href="/profile">
         <a className={styles.card}>
-            <Image src={userProfilePic} alt={name} width={150}  height={150} className={styles.img}/>
+            <Image src={userProfilePic} alt={name} width={160}  height={160} className={styles.img}/>
             <p className={styles.p}>{name}</p>
             <p className={styles.p}>{title}</p>  
         </a>
