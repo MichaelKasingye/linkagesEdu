@@ -47,7 +47,9 @@ const projectDetails = [
 
 function RightSide() {
   return (
+    
     <section className={rightCss.right}>
+      {/* {console.log(data)} */}
       <ProfileHeader profileDetails={profileDetails} />
       <div className={profileStyle.border}></div>
       <div>

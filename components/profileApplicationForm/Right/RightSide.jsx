@@ -54,8 +54,7 @@ function RightSide({fireBaseData}) {
     setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
 console.log(allData);
        })
-        return () => {
-        };
+       
         }, []);
 
 
