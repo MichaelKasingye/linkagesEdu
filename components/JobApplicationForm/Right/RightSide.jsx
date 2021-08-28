@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { db } from '../../../Firebase/firebase';
+import { db,storage } from '../../../Firebase/firebase';
 import firebase from "firebase";
 
 import TitleRight from '../../TitleRight/TitleRight';
@@ -15,59 +15,149 @@ import { ButtonFilled } from '../../Button/Button';
 
 
 function RightSide() {
+    const [file, setFile] = useState(null);
+    const [progress, setProgress] = useState(0);
+     const [image, setImage] = useState(null);
 
-    const [coName, setCoName] = useState('');
-    const [ajob, setAJob] = useState('');
-    const [alocation, setALocation] = useState('');
-    const [jobdescription, setJobdescription] = useState('');
-    const [qualifications, setQualifications] = useState('');
-    const [category, setCategory] = useState('');
-    const [Deadline, setDeadline] = useState('');
-    
-    const [alljobs, setAlljobs] = useState('');
+    const [fname, setFName] = useState('');
+    const [lname, setLName] = useState('');
+
+    const [email, setEmail] = useState('');
+    const [link, setLink] = useState('');
+    const [description, setDescription] = useState('');
+    const [linkedIn, setLinkedIn] = useState('');
+    // const [category, setCategory] = useState('');
+    // const [Deadline, setDeadline] = useState('');
+    const [allData, setAllData] = useState('');
    
 
 
-    // useEffect(() => {
-    //    db.collection('jobs').onSnapshot(snapshot => {
-    //        console.log(snapshot.docs.map(doc => doc.data()));
+
+    useEffect(() => {
+       db.collection('jobsApplications').onSnapshot(snapshot => {
+           console.log(snapshot.docs.map(doc => doc.data()));
     //        setCoName(snapshot.docs.map(doc => doc.data().coName));
     //        setJob(snapshot.docs.map(doc => doc.data().jobTitle))
     //        setLocation(snapshot.docs.map(doc => doc.data().location))
     //        setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
     //        setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
     //        setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
-    //        setDeadline(snapshot.docs.map(doc => doc.data().deadline))
 
-    //    })
-    //     return () => {
-    //     };
-    //     }, []);
 
-        function postJob(event) {
+    setAllData(snapshot.docs.map(doc => doc.data()))
+console.log(allData);
+       })
+        return () => {
+        };
+        }, []);
+
+        // function applyJob(event) {
+        //     event.preventDefault();
+        //     // console.log(coName);
+        //     db.collection('jobsApplications').add({
+        //         name:name,
+        //         email:email,
+        //         link:link,
+        //         description:description,
+        //         linkedIn:linkedIn,
+        //         // jobCategory:category,
+        //         // deadline:Deadline,
+        //         // username: user.displayName,
+        //         timestamp: firebase.firestore.FieldValue.serverTimestamp()
+
+        //         // var setWithMerge = cityRef.set({
+        //         //     capital: true
+        //         // }, { merge: true });
+
+        //     }).then((docRef) => {
+        //         console.log("Document sent with ID: ", docRef.id );
+        //         //update collection with document id
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error adding document: ", error);
+        //     });
+
+        //     setName('');
+        //     setEmail('');
+        //     setLink('');
+        //     setDescription('');
+        //     setLinkedIn('');
+        //     // setQualifications('');
+        //     // setDeadline('');
+        //     // setCategory('');
+        // }
+        // // console.log(coName);
+
+
+
+        const handleChange = (e) => {
+            if(e.target.files[0]){
+                setFile(e.target.files[0]);
+            }
+        };
+    
+    
+    
+        const applyJob = (event) =>{
             event.preventDefault();
-            // console.log(coName);
-            db.collection('jobs').add({
-                coName:coName,
-                jobTitle:job,
-                location:location,
-                jobDescription:jobdescription,
-                qualifications:qualifications,
-                jobCategory:category,
-                deadline:Deadline,
-                // username: user.displayName,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            });
-            setCoName('');
-            setJob('');
-            setLocation('');
-            setJobdescription('');
-            setQualifications('');
-            setQualifications('');
-            setDeadline('');
-            setCategory('');
-        }
-        // console.log(coName);
+
+            const uploadTask = storage.ref(`file/${file.name}`).put(file);
+    
+            uploadTask.on(
+                "state_changed",
+                (snapshot)=>{
+                    //progress function..
+                    const progress = Math.round(
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                    setProgress(progress);
+                    },
+                    (error) => {
+                        console.log(error);
+                        alert(error.message);
+                    },
+                    //complete function 
+                    () =>{
+                        storage
+                        .ref("file")
+                        .child(file.name)
+                        .getDownloadURL()
+                        .then(url => {
+                            // post image inside db
+                            db.collection("jobsApplications").add({
+                                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                                 imageUrl: url,
+                                 fisrtName:fname,
+                                 lastName:lname,
+
+                                 email:email,
+                                 link:link,
+                                 description:description,
+                                 linkedIn:linkedIn,
+                            }).then((docRef) => {
+                                console.log("Document sent with ID: ", docRef.id );
+                                //update collection with document id
+                            })
+                            .catch((error) => {
+                                console.error("Error adding document: ", error);
+                            });
+                            setFName('');
+                            setLName('');
+
+                            setEmail('');
+                            setLink('');
+                            setDescription('');
+                            setLinkedIn('');
+                            setProgress(0);
+                            setFile(null)
+                        })
+                    }
+            )
+        };
+
+
+//name
+
+
 
     return (
         <section className={rightCss.right}>
@@ -77,28 +167,31 @@ function RightSide() {
        <form className={rightCss.FormsText}>
 
             <label >First Name</label>
-            <input type="text" placeholder="Name" value={coName} onChange={(e) => setCoName(e.target.value)}/>  
+            <input type="text" placeholder="First" value={fname} onChange={(e) => setFName(e.target.value)}/>  
+            <label >Last Name</label>
+            <input type="text" placeholder="Last" value={lname} onChange={(e) => setLName(e.target.value)}/> 
 
             <label >Email</label>
-            <input type="text" placeholder="Job"  value={ajob} onChange={(e) => setAJob(e.target.value)}/> 
+            <input type="text" placeholder="Email"  value={email} onChange={(e) => setEmail(e.target.value)}/> 
 
             <label >Short description about you</label>
-            <textarea  rows="4" cols="50" placeholder="Description"  value={jobdescription}  onChange={(e) => setJobdescription(e.target.value)}/> 
+            <textarea  rows="4" cols="50" placeholder="Description"  value={description}  onChange={(e) => setDescription(e.target.value)}/> 
 
             <label >Upload CV</label>
+            <input type="file" onChange={handleChange}/> 
             <ButtonFilled text = "Upload" />
-
+            <progress  className={rightCss.imageupload_progress} value={progress} max="100"></progress>
 
             <label >Web site /portfolio/ github Link</label>
-            <input type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)}/> 
+            <input type="text" placeholder="Link" value={link} onChange={(e) => setLink(e.target.value)}/> 
 
-            <label >LinkedIn LInk</label>
-            <input type="text" placeholder="Deadline" value={Deadline} onChange={(e) => setDeadline(e.target.value)}/> 
+            <label >LinkedIn Link</label>
+            <input type="text" placeholder="LinkedIn" value={linkedIn} onChange={(e) => setLinkedIn(e.target.value)}/> 
 
             
                 
             </form>         {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
-        <ButtonFilled text = "Submit" onClick={postJob}/>
+        <ButtonFilled text = "Submit" onClick={applyJob}/>
         </section>
     )
 }

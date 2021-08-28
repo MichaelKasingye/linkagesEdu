@@ -1,6 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-import { db } from '../../Firebase/firebase';
+import { db,storage } from '../../Firebase/firebase';
 
 const fireBaseData = db.collection('profileApplications').onSnapshot(snapshot => {
     //    console.log(snapshot.docs.map(doc => doc.data()));
@@ -10,9 +8,11 @@ const fireBaseData = db.collection('profileApplications').onSnapshot(snapshot =>
 // console.log(allData);
    })
 
+
+
+
 export default function handler(req, res) {
+  res.status(200).json({ name: 'John Doe' })
 
-    res.status(200).send(fireBaseData )
-
-  // res.status(200).json({ name: 'John Doe' })
-}
+    // res.status(200).json(fireBaseData )
+  }
