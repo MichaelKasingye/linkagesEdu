@@ -38,7 +38,7 @@ setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterDa
 
     })
   
-}, []);
+}, [id]);
 
 function reStart(){
   // router.push(`/testprofile/${id}`)
