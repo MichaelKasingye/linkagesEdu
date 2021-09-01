@@ -24,21 +24,21 @@ export default function Profile() {
     query: { id },
   } = router
 
-  useEffect(() => {
-    db.collection('profileApplications').onSnapshot(snapshot => {
-        // console.log(snapshot.docs.map(doc => doc.data()));
-        console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === id));
+    useEffect(() => {
+      db.collection('profileApplications').onSnapshot(snapshot => {
+          // console.log(snapshot.docs.map(doc => doc.data()));
+          console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === id));
 
-//  setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
-//  console.log([...allData].map(info => info.id));
-// console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === id));
-// setInfo([...allData].filter(filterData => filterData.id === id));
-setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === id));
+  //  setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+  //  console.log([...allData].map(info => info.id));
+  // console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === id));
+  // setInfo([...allData].filter(filterData => filterData.id === id));
+  setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === id));
 
 
-    })
-  
-}, [id]);
+      })
+    
+  }, [id]);
 
 function reStart(){
   // router.push(`/testprofile/${id}`)
