@@ -11,7 +11,7 @@ import rightCss from '../../../styles/body/RightBody.module.css';
 import Modal from '../../Modal/Modal';
 import { ButtonFilled } from '../../Button/Button';
 
-
+// note
 
 
 
