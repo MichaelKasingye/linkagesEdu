@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { db,storage } from '../../../Firebase/firebase';
 import firebase from "firebase";
@@ -179,8 +180,9 @@ console.log(allData);
 
             <label >Upload CV</label>
             <input type="file" onChange={handleChange}/> 
-            <ButtonFilled text = "Upload" />
             <progress  className={rightCss.imageupload_progress} value={progress} max="100"></progress>
+
+            {/* <ButtonFilled text = "Upload" /> */}
 
             <label >Web site /portfolio/ github Link</label>
             <input type="text" placeholder="Link" value={link} onChange={(e) => setLink(e.target.value)}/> 
@@ -192,6 +194,7 @@ console.log(allData);
                 
             </form>         {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
         <ButtonFilled text = "Submit" onClick={applyJob}/>
+
         </section>
     )
 }

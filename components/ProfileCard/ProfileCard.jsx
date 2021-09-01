@@ -8,7 +8,9 @@ import Link from 'next/link';
 
 export default function ProfileCard({fname,lname, title,img,id}) {
     return (
-        <Link href="[profile]/[id]" as={`/testprofile/${id}`} passHref>
+        // <Link href="[profile]/[id]" as={`/testprofile/${id}`} passHref>
+        <Link href="profile/[id]" as={`/profile/${id}`} passHref>
+
         <a className={styles.card}>
             {/* <Image src={img} alt={fname} width={160}  height={160} className={styles.img}/> */}
             <img src={img} alt="img" width="300" height="300" className={styles.img}/>
