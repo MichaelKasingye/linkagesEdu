@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { db } from '../../../Firebase/firebase';
 import firebase from "firebase";
