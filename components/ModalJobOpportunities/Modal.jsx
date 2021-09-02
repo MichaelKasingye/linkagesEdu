@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -118,9 +117,9 @@ function ModalComp(props) {
     </div>
 
         {/* <ModalComp /> */}
-        <Link href="/jobapplicationform">
+        {/* <Link href="/jobapplicationform">
       <ButtonFilled text = {props.label} onClick={handleClose}/>
-        </Link>
+        </Link> */}
 
         </div>  
         

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
 import React from 'react'; 
 import { useState } from "react";
 import Link from "next/link";
@@ -18,9 +17,10 @@ const [showMe, setShowMe] = useState(false);
     <>
       <nav className={navStyles.navbar}>
         <Link href="/" >
+          <a>
           <div className={navStyles.brand}>
             <Image src={logo} alt=" EDU Logo" height={90} width={100} />
-          </div>
+          </div></a>
         </Link>
         <ul className={navStyles.links}>
           <li className={navStyles.navlink}>

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { db,storage } from '../../../Firebase/firebase';
 import firebase from "firebase";
@@ -32,15 +31,15 @@ function RightSide() {
 
 
 
-    useEffect(() => {
-       db.collection('jobsApplications').onSnapshot(snapshot => {
-           console.log(snapshot.docs.map(doc => doc.data()));
-    setAllData(snapshot.docs.map(doc => doc.data()))
-console.log(allData);
-       })
-        return () => {
-        };
-        }, []);
+//     useEffect(() => {
+//        db.collection('jobsApplications').onSnapshot(snapshot => {
+//            console.log(snapshot.docs.map(doc => doc.data()));
+//     setAllData(snapshot.docs.map(doc => doc.data()))
+// console.log(allData);
+//        })
+//         return () => {
+//         };
+//         }, []);
 
         const handleChange = (e) => {
             if(e.target.files[0]){
