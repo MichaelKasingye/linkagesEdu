@@ -18,7 +18,7 @@ import { ButtonFilled } from "../../components/Button/Button";
 import BackdropOverlay from "../../components/Backdrop/Backdrop";
 // import Tag from "../../TechnicalSkills/Tag";
 // import Skills from "../../Skills/Skills";
-
+import { doc, getDoc } from "firebase/firestore";
 
 export default function Jobdescription() {
 
@@ -80,4 +80,28 @@ export default function Jobdescription() {
       )}
     </div>
   );
+}
+
+
+export const getServerSideProps = async (context) => {
+  var docRef = db.collection("jobs").doc(context.params.JobId);
+
+console.log(docRef);
+
+docRef.get().then((doc) => {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+});
+
+  return {
+      props: {
+        // info
+      }
+  }
 }

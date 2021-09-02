@@ -27,8 +27,6 @@ function RightSide() {
     const [link, setLink] = useState('');
     const [description, setDescription] = useState('');
     const [linkedIn, setLinkedIn] = useState('');
-    // const [category, setCategory] = useState('');
-    // const [Deadline, setDeadline] = useState('');
     const [allData, setAllData] = useState('');
    
 
@@ -37,59 +35,12 @@ function RightSide() {
     useEffect(() => {
        db.collection('jobsApplications').onSnapshot(snapshot => {
            console.log(snapshot.docs.map(doc => doc.data()));
-    //        setCoName(snapshot.docs.map(doc => doc.data().coName));
-    //        setJob(snapshot.docs.map(doc => doc.data().jobTitle))
-    //        setLocation(snapshot.docs.map(doc => doc.data().location))
-    //        setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
-    //        setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
-    //        setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
-
-
     setAllData(snapshot.docs.map(doc => doc.data()))
 console.log(allData);
        })
         return () => {
         };
         }, []);
-
-        // function applyJob(event) {
-        //     event.preventDefault();
-        //     // console.log(coName);
-        //     db.collection('jobsApplications').add({
-        //         name:name,
-        //         email:email,
-        //         link:link,
-        //         description:description,
-        //         linkedIn:linkedIn,
-        //         // jobCategory:category,
-        //         // deadline:Deadline,
-        //         // username: user.displayName,
-        //         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-
-        //         // var setWithMerge = cityRef.set({
-        //         //     capital: true
-        //         // }, { merge: true });
-
-        //     }).then((docRef) => {
-        //         console.log("Document sent with ID: ", docRef.id );
-        //         //update collection with document id
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error adding document: ", error);
-        //     });
-
-        //     setName('');
-        //     setEmail('');
-        //     setLink('');
-        //     setDescription('');
-        //     setLinkedIn('');
-        //     // setQualifications('');
-        //     // setDeadline('');
-        //     // setCategory('');
-        // }
-        // // console.log(coName);
-
-
 
         const handleChange = (e) => {
             if(e.target.files[0]){
@@ -155,8 +106,6 @@ console.log(allData);
             )
         };
 
-
-//name
 
 
 
