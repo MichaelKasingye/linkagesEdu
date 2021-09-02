@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { db,storage } from '../../Firebase/firebase';
+import { db, } from '../../Firebase/firebase';
 
 import LeftSide from "../../components/PersonalProfile/Left/LeftSide";
 import RightSide from "../../components/PersonalProfile/Right/RightSide";  
@@ -110,14 +109,11 @@ function reStart(){
                 projectImage={info[0].data.projectImgLink}
 
               />
-        {/* <img src={info[0].data.projectImgLink} alt="img" width="300" height="300"/> */}
-         {/* <a href={info[0].data.certificateImage} target="_blank" rel="noopener noreferrer">css </a> */}
-           {/* <p>{info[0].data.certificateName}</p> */}
+        
         </div>
       </div>
       </>
           ) : (
-        // <h1 onClick={() => router.push('/profileform')}> back to previous page</h1>
        <button><h1 onClick={reStart}> back to previous page</h1></button> 
 
       )}

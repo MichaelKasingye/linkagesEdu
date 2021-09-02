@@ -20,9 +20,10 @@ import BackdropOverlay from "../../components/Backdrop/Backdrop";
 // import Skills from "../../Skills/Skills";
 import { doc, getDoc } from "firebase/firestore";
 
-export default function Jobdescription() {
+export default function Jobdescription({data}) {
 
     const [info, setInfo] = useState('');
+console.log(data);
     const router = useRouter()
     const {
       query: { JobId },
@@ -37,10 +38,10 @@ export default function Jobdescription() {
     
   }, [JobId]);
 
-  useEffect(() => {
-    // Prefetch the dashboard page
-    router.prefetch('/jobapplicationform')
-  }, [router])
+  // useEffect(() => {
+  //   // Prefetch the dashboard page
+  //   router.prefetch('/jobapplicationform')
+  // }, [router])
 
   // console.log(info[0]);
 
@@ -83,25 +84,128 @@ export default function Jobdescription() {
 }
 
 
-export const getServerSideProps = async (context) => {
-  var docRef = db.collection("jobs").doc(context.params.JobId);
+// export const getServerSideProps = async (context) => {
+//   let data = []
+//   try 
+//   {
+//     var docRef = db.collection("jobs").doc(context.params.JobId);
+  
+//   docRef.get().then((doc) => {
+//     // if (doc.exists) {
+//         // console.log("Document data:", doc.data());
+//         data.push(doc.data())
+//         // data.push(
+//         //   {
+//         //      id: doc.id,
+//         //      otherSkills: doc.data().otherSkills,
+//         //      projectName: doc.data().projectName,
+//         //      projectDescription: doc.data().projectDescription,
+//         //      email: doc.data().email,
+//         //      phone: doc.data().phone,
+//         // })
+  
+//     //   } else {
+//     //     // doc.data() will be undefined in this case
+//     //     console.log("No such document!");
+//     // }
 
-console.log(docRef);
+//   })
+//   console.log(data)
+// } catch(error) {
+//     // catch part using try/catch
+//     console.log('Error getting documents: ', error)
+//     // return something else here, or an empty props, or throw an exception or whatever 
+// }
 
-docRef.get().then((doc) => {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch((error) => {
-    console.log("Error getting document:", error);
-});
+// console.log(data);
 
-  return {
-      props: {
-        // info
-      }
-  }
-}
+//   return {
+//       props: {
+//         data
+//       }
+//   }
+// }
+
+
+
+
+// export const getStaticProps = async (context) => {
+//   let data = []
+//   try 
+//   {
+//     var docRef = db.collection("jobs").doc(context.params.JobId);
+  
+//   docRef.get().then((doc) => {
+//     if (doc.exists) {
+//         // console.log("Document data:", doc.data());
+//         // info.push(doc.data())
+//         data.push(
+//           {
+//              id: doc.id,
+//              otherSkills: doc.data().otherSkills,
+//              projectName: doc.data().projectName,
+//              projectDescription: doc.data().projectDescription,
+//              email: doc.data().email,
+//              phone: doc.data().phone,
+//         })
+  
+//       } else {
+//         // doc.data() will be undefined in this case
+//         console.log("No such document!");
+//     }
+
+//   })
+//   console.log(data)
+// } catch(error) {
+//     // catch part using try/catch
+//     console.log('Error getting documents: ', error)
+//     // return something else here, or an empty props, or throw an exception or whatever 
+// }
+
+// console.log(data);
+
+//   return {
+//       props: {
+//         data
+//       }
+//   }
+// }
+
+// export async function getStaticPaths() {
+//   let info = []
+//   let paths = []
+
+//   try 
+//   {
+//     // await the promise
+//     const querySnapshot = await db
+//     .collection('profileApplications')
+//       .get();
+      
+//     querySnapshot.forEach(function (doc) {
+//       // console.log(doc.data())
+//       // console.log(doc.data().jobCategory)
+//       info.push(
+//         {
+//            id: doc.id,
+
+//       })
+
+//     })
+//     const paths = info.map((data) => ({params:{JobId: data.id.toString()}}))
+//     paths.push(paths)
+//     // console.log(info)
+//     console.log(paths)
+
+//   } catch(error) {
+//       // catch part using try/catch
+//       console.log('Error getting documents: ', error)
+//       // return something else here, or an empty props, or throw an exception or whatever 
+//   }
+
+// // console.log(info);
+//   return {
+//     paths,
+//     fallback: true, 
+//   };
+// }

@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
+
 import React, { useEffect, useState } from 'react'
 import { db,storage } from '../../../Firebase/firebase';
 import Link from "next/link";
@@ -47,16 +47,16 @@ function RightSide({fireBaseData}) {
 // console.log(fireBaseData);
 
 
-    useEffect(() => {
-       db.collection('profileApplications').onSnapshot(snapshot => {
-        //    console.log(snapshot.docs.map(doc => doc.data()));
-        //    console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+//     useEffect(() => {
+//        db.collection('profileApplications').onSnapshot(snapshot => {
+//         //    console.log(snapshot.docs.map(doc => doc.data()));
+//         //    console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
 
-    setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
-console.log(allData);
-       })
+//     setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+// console.log(allData);
+//        })
        
-        }, []);
+//         }, []);
 
 
         const handleChange = (e) => {
