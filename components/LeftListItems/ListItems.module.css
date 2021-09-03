@@ -1,23 +1,22 @@
-.list ul{
-line-height: 2;
+.list ul {
+  line-height: 2;
 }
 
-.list li{
-    list-style: none;
-    color: #405467;
-    margin-left: 25px;
+.list li {
+  list-style: none;
+  color: #405467;
+  margin-left: 25px;
+  padding: 7px;
 }
-.list li:hover{
-    list-style: none;
-    font-weight: 500;
-    color: #A82E2E;
-    font-weight: 600;
-
+.list li:hover {
+  list-style: none;
+  font-weight: 500;
+  color: #a82e2e;
+  font-weight: 600;
 }
-.list li:active{
-    list-style: none;
-    font-weight: 500;
-    color: #A82E2E;
-    font-weight: 600;
-
+.list li:active {
+  list-style: none;
+  font-weight: 500;
+  color: #a82e2e;
+  font-weight: 600;
 }
