@@ -39,23 +39,27 @@
   padding-right: 100px;
   background-color: #e5e5e5;
 } */
-.imageupload{
+.imageupload {
   display: flex;
   flex-direction: column;
   width: 60%;
   margin: 10px auto;
   position: fixed;
-  bottom: 0; 
+  bottom: 0;
   background-color: #fff;
   border-top: 1px solid lightgray;
-  
 }
 
-.imageupload_progress{
+.imageupload_progress {
   width: 100%;
-border: 1px solid #fff;
-background-color: #fff;
-border-radius: 10px;
-height: 8px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 8px;
+}
 
+@media screen and (max-width: 830px) {
+  .right {
+    margin: 15px 0 15px 15px;
+  }
 }
