@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import React from 'react'
 import Image from "next/image";
 import styles from "./ProfileCard.module.css"
@@ -13,7 +11,16 @@ export default function ProfileCard({fname,lname, title,img,id}) {
 
         <a className={styles.card}>
             {/* <Image src={img} alt={fname} width={160}  height={160} className={styles.img}/> */}
-            <img src={img} alt="img" width="300" height="300" className={styles.img}/>
+            <Image
+                loader={ ({ src, width, quality }) => {
+                    return `${src}`
+                  }}
+                 src={img}
+                  alt={fname}
+                 width={300}
+                height={200}
+                 />
+            {/* <img src={img} alt="img" width="300" height="300" className={styles.img}/> */}
             <p className={styles.p}>{fname} <span>{lname}</span> </p>
             <p className={styles.p}>{title}</p>  
         </a>
