@@ -1,12 +1,12 @@
-.list ul {
-  line-height: 2;
+.list ul{
+line-height: 1;
 }
 
-.list li {
-  list-style: none;
-  color: #405467;
-  margin-left: 25px;
-  padding: 7px;
+.list li{
+    list-style: none;
+    color: #405467;
+    margin-left: 25px;
+    line-height: 2;
 }
 .list li:hover {
   list-style: none;

@@ -6,24 +6,27 @@ import Link from 'next/link';
 
 export default function ProfileCard({fname,lname, title,img,id}) {
     return (
-        // <Link href="[profile]/[id]" as={`/testprofile/${id}`} passHref>
-        <Link href="profile/[id]" as={`/profile/${id}`} passHref>
-
+      // <Link href="[profile]/[id]" as={`/testprofile/${id}`} passHref>
+      <Link href="profile/[id]" as={`/profile/${id}`} passHref>
         <a className={styles.card}>
-            {/* <Image src={img} alt={fname} width={160}  height={160} className={styles.img}/> */}
-            <Image
-                loader={ ({ src, width, quality }) => {
-                    return `${src}`
-                  }}
-                 src={img}
-                  alt={fname}
-                 width={300}
-                height={200}
-                 />
-            {/* <img src={img} alt="img" width="300" height="300" className={styles.img}/> */}
-            <p className={styles.p}>{fname} <span>{lname}</span> </p>
-            <p className={styles.p}>{title}</p>  
+          {/* <Image src={img} alt={fname} width={160}  height={160} className={styles.img}/> */}
+          <Image
+            loader={({ src, width, quality }) => {
+              return `${src}`;
+            }}
+            src={img}
+            alt={fname}
+            width={10}
+            height={10}
+            layout="responsive" 
+            className={styles.img}
+          />
+          {/* <img src={img} alt="img" width="300" height="300" className={styles.img}/> */}
+          <p className={styles.p}>
+            {fname} <span>{lname}</span>{" "}
+          </p>
+          <p className={styles.p}>{title}</p>
         </a>
-        </Link>
-    )
+      </Link>
+    );
 }
