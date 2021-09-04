@@ -10,7 +10,7 @@ import rightCss from '../../../styles/body/RightBody.module.css';
 import Modal from '../../Modal/Modal';
 import { ButtonFilled } from '../../Button/Button';
 
-
+// note
 
 
 
@@ -27,23 +27,23 @@ function RightSide() {
     const [alljobs, setAlljobs] = useState('');
 
 
-    useEffect(() => {
-       db.collection('jobs').onSnapshot(snapshot => {
-        //    console.log(snapshot.docs.map(doc => doc.data()));
-        //    setCoName(snapshot.docs.map(doc => doc.data().coName));
-        //    setJob(snapshot.docs.map(doc => doc.data().jobTitle))
-        //    setLocation(snapshot.docs.map(doc => doc.data().location))
-        //    setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
-        //    setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
-        //    setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
-        //    setDeadline(snapshot.docs.map(doc => doc.data().deadline))
-           setAlljobs(snapshot.docs.map(doc => doc.data()))
-       })
+    // useEffect(() => {
+    //    db.collection('jobs').onSnapshot(snapshot => {
+    //     //    console.log(snapshot.docs.map(doc => doc.data()));
+    //     //    setCoName(snapshot.docs.map(doc => doc.data().coName));
+    //     //    setJob(snapshot.docs.map(doc => doc.data().jobTitle))
+    //     //    setLocation(snapshot.docs.map(doc => doc.data().location))
+    //     //    setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
+    //     //    setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
+    //     //    setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
+    //     //    setDeadline(snapshot.docs.map(doc => doc.data().deadline))
+    //        setAlljobs(snapshot.docs.map(doc => doc.data()))
+    //    })
 
-       console.log(alljobs);
-        return () => {
-        };
-        }, []);
+    //    console.log(alljobs);
+    //     return () => {
+    //     };
+    //     }, []);
 
         function postJob(event) {
             event.preventDefault();
@@ -109,24 +109,7 @@ function RightSide() {
             
                 
             </form> 
-        {/* </div> */}
 
-        {/* <label >Company Name</label>
-        <input type="text" placeholder="Name" value={ajob} handler={(e) => setAJob(e.target.value)}/>   */}
-
-        {/* <FormsText placeholder="Job" title="Job Title" input={ajob} handler={(e) => setAJob(e.target.value)}/>
-
-        <FormsText placeholder="Location" title="Location" input={alocation} handler={(e) => setALocation(e.target.value)}/>
-
-        <FormsTextArea placeholder="Description"  title="Job description" input={jobdescription} handler={(e) => setJobdescription(e.target.value)}/>
-
-        <FormsTextArea placeholder="Qualifications"  title="Required Qualifications" input={qualifications} handler={(e) => setQualifications(e.target.value)}/>
-
-        <FormsTextArea placeholder="Category"  title="Job Category" input={category} handler={(e) => setCategory(e.target.value)}/>
-
-        <FormsText placeholder="Deadline"  title="Deadline" input={Deadline} handler={(e) => setDeadline(e.target.value)}/> */}
-
-        {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
 
         <ButtonFilled text = "Post" onClick={postJob}/>
         </section>

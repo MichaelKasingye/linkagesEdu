@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import { db,storage } from '../../../Firebase/firebase';
 import Link from "next/link";
@@ -10,52 +9,26 @@ import Border from "../../Border/Border";
 import ProfileCard from "../../ProfileCard/ProfileCard";
 import profileStyles from "../../../styles/body/AllProfiles.module.css"; 
 
-const profileDetails = [
-  {
-    key: "1", 
-    name: "John Magale ",
-    title: "FullStack Developer",
-  },
-  {
-    key: "2",
-    name: "John Magale 2",
-    title: "Backend Developer",
-  },
-  {
-    key: "3",
-   name: "John Magale 3",
-    title: "UI/UX Designer",
-  },
-  {
-    key: "4",
-   name: "John Magale 4",
-    title: "Frontend Developer",
-  },
-  {
-    key: "5",
-  name: "John Magale 5",
-    title: "JavaScript Developer",
-  },
-  {
-    key: "6",
-  name: "John Magale 6",
-    title: "React Developer",
-  },
-];
 
-function RightSide() {
+
+function RightSide({server}) {
   const [allData, setAllData] = useState('');
+  const [severData, setSeverData] = useState('');
 
-  useEffect(() => {
-    db.collection('profileApplications').onSnapshot(snapshot => {
-     //    console.log(snapshot.docs.map(doc => doc.data()));
-     //    console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+  console.log(server)
+  // console.log(`info`)
 
- setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
-// console.log(allData);
-    })
+
+//   useEffect(() => {
+//     db.collection('profileApplications').onSnapshot(snapshot => {
+//      //    console.log(snapshot.docs.map(doc => doc.data()));
+//      //    console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+
+//  setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+// // console.log(allData);
+//     })
     
-     }, []);
+//      }, []);
 
   return (
     <section className={rightCss.right}>      
@@ -66,34 +39,21 @@ function RightSide() {
       />  
 
 
-{/* { 
-       [...allData].map(info => (
-           <div className="" key={info.id}>
-    <Link href="[profile]/[id]" as={`/testprofile/${info.id}`} passHref>
-        <div className="" key={info.id}>
-
-               <h1 >{info.data.fisrtName} {info.data.lastName}</h1>
-               <img src={info.data.imageUrl} alt="img" width="300" height="300"/>
-               <p >{info.data.email}</p>
-               <p >{info.data.jobTItle}</p>
-        </div>
-         </Link>
-         </div>
-       ))
-       } */}
       
          <div className={profileStyles.allProfiles}> 
       <div className={profileStyles.flexitem}>
-       { [...allData].map(info => (
+       { server.map(info => (
             <ProfileCard
             id={info.id}
               key={info.id} 
-              img={info.data.imageUrl}
-              fname={info.data.fisrtName}
-              lname={info.data.lastName}
-              title={info.data.jobTItle}
+              img={info.imageUrl}
+              fname={info.fisrtName}
+              lname={info.lastName}
+              title={info.jobTItle}
 
             />
+            // console.log(info.id)
+
           )
         )}
 
@@ -103,5 +63,49 @@ function RightSide() {
     </section>
   );
 }
+
+
+// export const getStaticProps = async () => {
+//   let info = ["xxxx"]
+//   try 
+//   {
+//     // await the promise
+//     const querySnapshot = await db
+//     .collection('profileApplications')
+//       .get();
+      
+//     querySnapshot.forEach(function (doc) {
+//       console.log(doc.id)
+//       // console.log(doc.data().jobCategory)
+//       info.push(
+//         {
+//            id: doc.id
+//            }
+//            ,{
+//           // jobTitle: doc.data().jobTitle,
+//           // jobCategory: doc.data().jobCategory,
+//           // jobDescription: doc.data().jobDescription,
+//           // deadline: doc.data().deadline,
+//           // location: doc.data().location,
+//           // qualifications: doc.data().qualifications,
+//       })
+
+
+      
+
+//     })
+//     console.log(querySnapshot)
+//   } catch(error) {
+//       // catch part using try/catch
+//       console.log('Error getting documents: ', error)
+//       // return something else here, or an empty props, or throw an exception or whatever 
+//   }
+
+//   return {
+//       props: {
+//         info
+//       }
+//   }
+// }
 
 export default RightSide;

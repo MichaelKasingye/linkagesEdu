@@ -4,16 +4,11 @@
   border-radius: 5%;  
   padding: 0.2rem;
   margin: 20px 5px;
-  min-width:24%;
-  min-height: 280px;
+  min-width:20%;
+  min-height: 300px;
 }
 .img {
-  border-radius: 50%;   
-   display: block;
-    width: 90%; 
-    margin-left: auto;
-    margin-right: auto; 
-    height: 160px;
+  border-radius: 50%; 
 }
 .p {
   font-weight: bold;

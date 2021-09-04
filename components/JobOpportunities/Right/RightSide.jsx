@@ -12,56 +12,27 @@ import ModalJobOpportunities from "../../ModalJobOpportunities/Modal";
 
 
 
-const opport = [
-  {
-    key: "1",
-    jobTitle: "Junior Fronted",
-    company: "Outbox Uganda",
-    location: "Kampala",
-    paragraph:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,  slightly believable. If you are going to use a passage of Lorem Ipsum",
-    deadline: "21/08/2021",
-  },
-  {
-    key: "2",
-    jobTitle: "Office Fronted",
-    company: "Outbox Uganda",
-    location: "Kampala",
-    paragraph:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,  slightly believable. If you are going to use a passage of Lorem Ipsum",
-    deadline: "21/08/2021",
-  },
-  {
-    key: "3",
-    jobTitle: "Exct Fronted",
-    company: "Outbox Uganda",
-    location: "Kampala",
-    paragraph:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,  slightly believable. If you are going to use a passage of Lorem Ipsum",
-    deadline: "21/08/2021",
-  },
-];
-
-function RightSide() {
+function RightSide({server}) {
   const [alljobs, setAlljobs] = useState();
+console.log(server);
 
-  useEffect(() => {
-    db.collection('jobs').onSnapshot(snapshot => {
-        // console.log(snapshot.docs.map(doc => doc.data()));
-        // setCoName(snapshot.docs.map(doc => doc.data().coName));
-     //    setJob(snapshot.docs.map(doc => doc.data().jobTitle))
-     //    setLocation(snapshot.docs.map(doc => doc.data().location))
-     //    setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
-     //    setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
-     //    setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
-     //    setDeadline(snapshot.docs.map(doc => doc.data().deadline))
-     setAlljobs(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})))
-    })
+  // useEffect(() => {
+  //   db.collection('jobs').onSnapshot(snapshot => {
+  //       // console.log(snapshot.docs.map(doc => doc.data()));
+  //       // setCoName(snapshot.docs.map(doc => doc.data().coName));
+  //    //    setJob(snapshot.docs.map(doc => doc.data().jobTitle))
+  //    //    setLocation(snapshot.docs.map(doc => doc.data().location))
+  //    //    setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
+  //    //    setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
+  //    //    setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
+  //    //    setDeadline(snapshot.docs.map(doc => doc.data().deadline))
+  //    setAlljobs(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})))
+  //   })
 
-    console.log(alljobs);
-     return () => {
-     };
-     }, []);
+  //   console.log(alljobs);
+  //    return () => {
+  //    };
+  //    }, []);
 
   
   return (
@@ -91,9 +62,9 @@ function RightSide() {
 
 <div className={opportStyles.flexitem}>
 
-{typeof alljobs != "undefined" ? (
+{typeof server != "undefined" ? (
         
-        alljobs.map(
+        server.map(
           (job) => (
         //     <div 
         //     key={Math.random()} 
@@ -115,11 +86,11 @@ function RightSide() {
         <OpportunityCard
         Jid={job.id}
           key={job.id}
-          jobTitle={job.data.jobTitle}
-          company={job.data.coName}
-          location={job.data.locationion}
-          paragraph={job.data.jobDescription}
-          deadline={job.data.deadline}
+          jobTitle={job.jobTitle}
+          company={job.coName}
+          location={job.locationion}
+          paragraph={job.jobDescription}
+          deadline={job.deadline}
         />
           )
         )

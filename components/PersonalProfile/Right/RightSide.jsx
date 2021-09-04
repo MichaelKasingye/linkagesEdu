@@ -50,7 +50,7 @@ function RightSide() {
     
     <section className={rightCss.right}>
       {/* {console.log(data)} */}
-      <ProfileHeader profileDetails={profileDetails} />
+      {/* <ProfileHeader profileDetails="" /> */}
       <div className={profileStyle.border}></div>
       <div>
         <TitleRight title="Bio" />
@@ -89,6 +89,19 @@ function RightSide() {
       </div>
     </section>
   );
+}
+
+
+export const getServerSideProps = async (context) => {
+  const docRef = doc(db, "profileApplications", context.params.id);
+  const docSnap = await getDoc(docRef);
+  const user = await docSnap.data()
+
+  return{
+    props:{
+      post
+    }
+  }
 }
 
 export default RightSide;

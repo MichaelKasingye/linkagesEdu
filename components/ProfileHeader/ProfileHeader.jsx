@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
 import Image from 'next/image';
@@ -10,20 +9,25 @@ export default function ProfleHeader({profileDetails}) {
       <div className={styles.profileHeader}>
         <div className={styles.details}>
           <p className={styles.p}>
-            {profileDetails[0].data.fisrtName} {profileDetails[0].data.lastName}
-          </p> 
+            {profileDetails[0].data.fisrtName} {" "}
+           {profileDetails[0].data.lastName}
+          </p>
           <p className={styles.p}>{profileDetails[0].data.jobTItle}</p>
           <p className={styles.p}>{profileDetails[0].data.phone}</p>
           <p className={styles.p}>{profileDetails[0].data.email}</p>
         </div>
-        {/* <Image src={userProfilePic} alt="name" width={150}  height={150} className={styles.img}/> */}
-        <img
+        {/* <Image src={profileDetails[0].data.imageUrl} alt="name" width={150}  height={150} className={styles.img}/> */}
+        <Image
+          loader={({ src, width, quality }) => {
+            return `${src}`;
+          }}
           src={profileDetails[0].data.imageUrl}
-          alt="img"
-          width="150"
-          height="150"
+          alt="name"
+          width={150}
+          height={150}
           className={styles.img}
         />
+        {/* <img src={profileDetails[0].data.imageUrl} alt="img" width="150" height="150" className={styles.img}/> */}
       </div>
     );
 }

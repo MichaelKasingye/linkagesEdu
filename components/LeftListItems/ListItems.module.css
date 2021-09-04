@@ -8,17 +8,15 @@ line-height: 1;
     margin-left: 25px;
     line-height: 2;
 }
-.list li:hover{
-    list-style: none;
-    font-weight: 500;
-    color: #A82E2E;
-    font-weight: 600;
-
+.list li:hover {
+  list-style: none;
+  font-weight: 500;
+  color: #a82e2e;
+  font-weight: 600;
 }
-.list li:active{
-    list-style: none;
-    font-weight: 500;
-    color: #A82E2E;
-    font-weight: 600;
-
+.list li:active {
+  list-style: none;
+  font-weight: 500;
+  color: #a82e2e;
+  font-weight: 600;
 }

@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
+
 import React, { useEffect, useState } from 'react'
 import { db,storage } from '../../../Firebase/firebase';
 import Link from "next/link";
 import firebase from "firebase";
-
+import Image from 'next/image'
 import TitleRight from '../../TitleRight/TitleRight';
 import SearchBar from '../../SearchBar/SearchBar';
 import {FormsText, FormsTextArea} from '../../Forms/Forms';
@@ -46,16 +46,16 @@ function RightSide({fireBaseData}) {
 // console.log(fireBaseData);
 
 
-    useEffect(() => {
-       db.collection('profileApplications').onSnapshot(snapshot => {
-        //    console.log(snapshot.docs.map(doc => doc.data()));
-        //    console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+//     useEffect(() => {
+//        db.collection('profileApplications').onSnapshot(snapshot => {
+//         //    console.log(snapshot.docs.map(doc => doc.data()));
+//         //    console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
 
-    setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
-console.log(allData);
-       })
+//     setAllData(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})));
+// console.log(allData);
+//        })
        
-        }, []);
+//         }, []);
 
 
         const handleChange = (e) => {
@@ -187,7 +187,16 @@ const slug = `${id}`;
         <div className="">
 
                <h1 key={info.id}>{info.data.fisrtName} {info.data.lastName}</h1>
-               <img src={info.data.imageUrl} alt="img" width="300" height="300"/>
+               {/* <img src={info.data.imageUrl} alt="img" width="300" height="300"/> */}
+               <Image
+                loader={({ src, width, quality }) => {
+                    return `${info.data.imageUrl}`
+                  }}
+                 src={info.data.imageUrl}
+                  alt={info.data.lastName}
+                 width={300}
+                height={300}
+                 />
                <p key={info.id}>{info.data.email}</p>
                <p key={info.id}>{info.data.jobTItle}</p>
         </div>

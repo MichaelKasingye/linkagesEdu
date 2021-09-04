@@ -117,9 +117,9 @@ function ModalComp(props) {
     </div>
 
         {/* <ModalComp /> */}
-        <Link href="/jobapplicationform">
+        {/* <Link href="/jobapplicationform">
       <ButtonFilled text = {props.label} onClick={handleClose}/>
-        </Link>
+        </Link> */}
 
         </div>  
         
