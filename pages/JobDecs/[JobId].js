@@ -38,12 +38,6 @@ console.log(data);
     
   }, [JobId]);
 
-  // useEffect(() => {
-  //   // Prefetch the dashboard page
-  //   router.prefetch('/jobapplicationform')
-  // }, [router])
-
-  // console.log(info[0]);
 
   return (
     <div className={styles.container}>
@@ -84,47 +78,47 @@ console.log(data);
 }
 
 
-export const getServerSideProps = async (context) => {
-  let data = []
-  try 
-  {
-     db.collection("jobs").doc(context.params.JobId).get().then((doc) => {
-    // if (doc.exists) {
-        // console.log("Document data:", doc.data());
-        data.push(doc.data())
-        // return data.push(
-        //   {
-        //      id: doc.id,
-        //      otherSkills: doc.data().otherSkills,
-        //      projectName: doc.data().projectName,
-        //      projectDescription: doc.data().projectDescription,
-        //      email: doc.data().email,
-        //      phone: doc.data().phone,
-        // })
+// export const getServerSideProps = async (context) => {
+//   let data = []
+//   try 
+//   {
+//      db.collection("jobs").doc(context.params.JobId).get().then((doc) => {
+//     if (doc.exists) {
+//         // console.log("Document data:", doc.data());
+//         // data.push(doc.data())
+//         return data.push(
+//           {
+//              id: doc.id,
+//              otherSkills: doc.data().otherSkills,
+//              projectName: doc.data().projectName,
+//              projectDescription: doc.data().projectDescription,
+//              email: doc.data().email,
+//              phone: doc.data().phone,
+//         })
   
-    //   } else {
-    //     // doc.data() will be undefined in this case
-    //     console.log("No such document!");
-    // }
+//       } else {
+//         // doc.data() will be undefined in this case
+//         console.log("No such document!");
+//     }
 
-  })
-  // console.log(docRef)
-  console.log(data)
+//   })
+//   // console.log(docRef)
+//   console.log(data)
 
-} catch(error) {
-    // catch part using try/catch
-    console.log('Error getting documents: ', error)
-    // return something else here, or an empty props, or throw an exception or whatever 
-}
+// } catch(error) {
+//     // catch part using try/catch
+//     console.log('Error getting documents: ', error)
+//     // return something else here, or an empty props, or throw an exception or whatever 
+// }
 
-console.log(data);
+// console.log(data);
 
-  return {
-      props: {
-        data
-      }
-  }
-}
+//   return {
+//       props: {
+//         data
+//       }
+//   }
+// }
 
 
 
@@ -170,6 +164,11 @@ console.log(data);
 //       }
 //   }
 // }
+
+
+
+
+
 
 // export async function getStaticPaths() {
 //   let info = []

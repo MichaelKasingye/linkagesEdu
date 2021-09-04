@@ -2,13 +2,17 @@ import React from "react";
 import LeftTitle from "../../../LeftTitle/LeftTitle";
 import LeftMenuCss from "./LeftMenu.module.css";
 import ListItems from "../../../LeftListItems/ListItems";
-import {opportunity} from '../../../Utilities/listMenu'
+import {admin} from '../../../Utilities/listMenu'
 
 function LeftMenu() {
-    return (
-        <div className={LeftMenuCss.left}>
-           <LeftTitle  title = "Job Categories"/> 
-           <ListItems list={opportunity}  />
+  console.log(admin);
+  return (
+    <div className={LeftMenuCss.left}>
+      
+      <LeftTitle title="Search" />
+      <ListItems list={admin}  />
+  
+
     </div>
   );
 }

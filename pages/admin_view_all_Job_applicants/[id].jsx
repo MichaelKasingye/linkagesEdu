@@ -8,5 +8,5 @@ function admindisplay() {
     )
 }
 
-export default admindisplay
+export default admindisplay 
 
