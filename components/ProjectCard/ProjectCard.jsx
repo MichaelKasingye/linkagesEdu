@@ -11,7 +11,7 @@ export default function ProfileCard({projectName, projectLink, projectDescriptio
             <Link href={projectLink}>
                 <a target="_blank" rel="noopener noreferrer">
                     {/* <Image src={projectImage} alt={projectName} width={300}  height={200} className={styles.img}/> */}
-        <img src={projectImage}  className={styles.img} alt="img" width="250" height="200"/>
+        <img src={projectImage}  className={styles.img} alt="img"/>
 
                     <p className={styles.title}>{projectName}</p>
                     <p className={styles.description}>{projectDescription}</p> 

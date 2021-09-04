@@ -1,17 +1,23 @@
 .projectcard { 
   box-shadow: 4px 2px 8px 2px rgba(0.1, 0.1, 0.1, 0.2);
-  width: 250px; 
-  height:max-content;
+  width: 30%; 
+  min-height:200px;
+  height: max-content;
   padding: 0.2rem;
-  margin: 0.5rem;
+  margin: 30px 10px;
   line-height: 0.2;
   color: #636E72; 
 } 
 .projectcard:hover{
   cursor:pointer;
 }
-.img{
-vertical-align: middle; 
+.projectcard .img{
+vertical-align: middle;  
+
+
+
+    height: 100%;
+    width: 100%;
 } 
 
  .title{
