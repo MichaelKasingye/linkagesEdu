@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import styles from "./ProjectCard.module.css"
-// import projectImage from "../images/project1.png";
+import projectImage from "../images/project1.png";
 // const myLoader = ({ src, width, quality }) => {
 //     return `${src}`
 //   }
-export default function ProfileCard({projectName, projectLink, projectDescription, projectImage}) {
+export default function ProfileCard({projectName, projectLink, projectDescription}) {
     return (
       <div className={styles.projectcard}>
         <Link href={projectLink}>

@@ -8,7 +8,7 @@ function LeftMenu({menu}) {
       <LeftTitle title="Search" />
       <ListItems list="full stack" link="/fullstack" />
 
-      
+
     </div>
   );
 }
