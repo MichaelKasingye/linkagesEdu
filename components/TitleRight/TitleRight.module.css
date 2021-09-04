@@ -6,8 +6,10 @@
 }
 .left_Title h3 {
   color: #096691;
-  margin-left: 10px;
+  margin-left: 70px;
   font-size: 20px;
+  width: 100%;
+  /* text-align: center; */
 }
 .left_Title span {
   height: 40px;

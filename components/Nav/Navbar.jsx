@@ -17,19 +17,9 @@ const [showMe, setShowMe] = useState(false);
     <>
       <nav className={navStyles.navbar}>
         <Link href="/" >
-          <a>
           <div className={navStyles.brand}>
-            {/* <Image src={logo} alt=" EDU Logo" height={90} width={100} /> */}
-            <Image
-                loader={ ({ src, width, quality }) => {
-                    return `${src}`
-                  }}
-                 src={logo}
-                  alt="EDU Logo"
-                 width={100}
-                height={90}
-                 />
-          </div></a>
+            <Image src={logo} alt=" EDU Logo" height={90} width={100} />
+          </div>
         </Link>
         <ul className={navStyles.links}>
           <li className={navStyles.navlink}>
@@ -47,22 +37,13 @@ const [showMe, setShowMe] = useState(false);
         </ul> 
           <div className={navStyles.user} onClick={toggle}>
             <div className={navStyles.name}>John</div>
-            {/* <Image
+            <Image
               src={profilePic}
               alt="Profile pic"
               width={45}
               height={45}
               className={navStyles.img}
-            /> */}
-                 <Image
-                loader={ ({ src, width, quality }) => {
-                    return `${src}`
-                  }}
-                 src={profilePic}
-                  alt="Profile pic"
-                 width={45}
-                height={45}
-                 />
+            />
           </div> 
       </nav>
       <div
