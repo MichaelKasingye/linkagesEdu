@@ -63,7 +63,15 @@ function Footer() {
       <div className={styles.copysection}>
         <Link href="/" className={styles.logo}>
           <a>
-            <Image src={logo} alt="logo" width={100} height={40} />
+            <Image
+              loader={({ src, width, quality }) => {
+                return `${src}`;
+              }}
+              src={logo}
+              alt="logo"
+              width={100}
+              height={40}
+            />
           </a>
         </Link>
         <div>
