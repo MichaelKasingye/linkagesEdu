@@ -1,17 +1,21 @@
 import React from 'react'
-import { db,storage } from '../../Firebase/firebase';
+import { db } from '../../Firebase/firebase';
+import LeftSide from "../../components/AdminAllJobOpportunities/Left/LeftSide";
+import RightSide from "../../components/AdminAllJobOpportunities/Right/RightSide";
+import styles from "../../styles/body/AllProfiles.module.css";
 
-export default  function admin({posts}) {
+export default  function admin({info}) {
     return (
-        <div>
-            {console.log(posts)}
-           <h1>admin</h1> 
-        </div>
+      <div className={styles.container}>
+      {/* {console.log(info)} */}
+        <LeftSide/>
+        <RightSide server = {info}/> 
+    </div>
     )
 }
 
 export const getStaticProps = async () => {
-    let posts = []
+    let info = []
     try 
     {
       // await the promise
@@ -49,7 +53,7 @@ export const getStaticProps = async () => {
 
     return {
         props: {
-          posts
+          info
         }
     }
 }

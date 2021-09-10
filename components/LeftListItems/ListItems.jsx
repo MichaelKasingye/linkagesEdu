@@ -5,13 +5,13 @@ import listItems from "./ListItems.module.css";
 function ListItems(props) {
   return (
     <div className={listItems.list}>
-      {/* <ul> {menuItems.map((menuItem, index)=> ( */}
-          <li >
-          <Link  href={props.link} >{props.list}</Link>
+      <ul> {props.list.map((menuItem, index)=> (
+          <li key ={index}>
+          <Link   href={menuItem.link} >{menuItem.list}</Link>
         </li>
-         {/* ) */}
-        {/* )}  */}
-      {/* </ul> */}
+         )
+        )} 
+      </ul>
     </div>
   );
 }
