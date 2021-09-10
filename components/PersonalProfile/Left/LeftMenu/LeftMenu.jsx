@@ -8,7 +8,7 @@ import {profile} from '../../../Utilities/listMenu'
 function LeftMenu() {
     return (
         <div className={LeftMenuCss.left}>
-           <LeftTitle  title = "Job Categories"/> 
+           <LeftTitle  title = "Settings"/> 
            <ListItems list={profile}  />
      
 

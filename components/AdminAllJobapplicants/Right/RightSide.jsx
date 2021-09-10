@@ -23,6 +23,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Tablecss from "../../../styles/body/DataTable.module.css";
 
+import style from "../../../styles/body/table.module.css";
+
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -64,36 +67,58 @@ const tableHeads = [ "Job Offer",'Company Name','Applicant','Deadline']
 
 {typeof server != "undefined" ? (
  
- <TableContainer component={Paper}>
- <Table className={classes.table} aria-label="simple table">
-   <TableHead>
-     <TableRow hover className={classes.HeadRow} >
-   {tableHeads.map((data, index) => (
-       <TableCell key={index} className={classes.HeadRow} hover role="checkbox"> {data} </TableCell>
-            ))}
-     </TableRow>
-   </TableHead>
-   <TableBody>
-     {server.map((data) => (
-       <TableRow key={data.id} hover>
-         <TableCell component="th" scope="row" className={classes.BodyRow}>
-         {data.jobTitle}
-         </TableCell>
-         <TableCell className={classes.BodyRow}>{data.coName}</TableCell>
-         <TableCell className={classes.BodyRow}>{data.fisrtName}</TableCell>
-         <TableCell className={classes.BodyRow}>{data.deadline}</TableCell>
-         <TableCell > <span className={Tablecss.note}>view</span> </TableCell>
+//  <TableContainer component={Paper}>
+//  <Table className={classes.table} aria-label="simple table">
+//    <TableHead>
+//      <TableRow hover className={classes.HeadRow} >
+//    {tableHeads.map((data, index) => (
+//        <TableCell key={index} className={classes.HeadRow} hover role="checkbox"> {data} </TableCell>
+//             ))}
+//      </TableRow>
+//    </TableHead>
+//    <TableBody>
+//      {server.map((data) => (
+//        <TableRow key={data.id} hover>
+//          <TableCell component="th" scope="row" className={classes.BodyRow}>
+//          {data.jobTitle}
+//          </TableCell>
+//          <TableCell className={classes.BodyRow}>{data.coName}</TableCell>
+//          <TableCell className={classes.BodyRow}>{data.fisrtName}</TableCell>
+//          <TableCell className={classes.BodyRow}>{data.deadline}</TableCell>
+//          <TableCell > <span className={Tablecss.note}>view</span> </TableCell>
 
-         {/* <TableCell align="right">23</TableCell>
-         <TableCell align="right">23</TableCell>
-         <TableCell align="right">23</TableCell>
-         <TableCell align="right">23</TableCell> */}
-       </TableRow>
-     ))}
-   </TableBody>
- </Table>
-</TableContainer>
+      
+//        </TableRow>
+//      ))}
+//    </TableBody>
+//  </Table>
+// </TableContainer>
         
+
+
+        <table className={style.table}>
+        <thead className={style.tableHead}>
+            <tr >
+            {tableHeads.map((data, index) => (
+       <th key={index} className={classes.HeadRow} hover role="checkbox"> {data} </th>
+            ))}
+            </tr>
+        </thead>
+        <tbody className={style.tableBody}>
+        {server.map((data) => (
+       <tr key={data.id} >
+         <td>
+         {data.jobTitle}
+         </td>
+         <td >{data.coName}</td>
+         <td >{data.fisrtName}</td>
+         <td >{data.deadline}</td>
+      
+       </tr>
+     ))}
+          
+        </tbody>
+    </table>
         
               ) : (
               <h4>Loading....</h4>
