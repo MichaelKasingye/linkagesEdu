@@ -22,6 +22,7 @@ export default function ProfileCard({projectName, projectLink, projectDescriptio
               width={10}
               height={6}
               layout="responsive"
+              className={styles.img}
             />
             <p className={styles.title}>{projectName}</p>
             <p className={styles.description}>{projectDescription}</p>

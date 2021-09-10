@@ -64,14 +64,14 @@ function Footer() {
         <Link href="/" className={styles.logo}>
           <a>
             <Image
-                loader={ ({ src, width, quality }) => {
-                    return `${src}`
-                  }}
-                 src={logo}
-                  alt="Profile pic"
-                 width={100}
-                height={40}
-                 />
+              loader={({ src, width, quality }) => {
+                return `${src}`;
+              }}
+              src={logo}
+              alt="logo"
+              width={100}
+              height={40}
+            />
           </a>
         </Link>
         <div>

@@ -1,15 +1,21 @@
-
-.left{
-    background-color: #D9E0E8;
-    /* border: 1px solid #D9E0E8; */
-
-    width: 330px;
-    /* height: 100%vh; */
-    /* top: -1; */
-   
+.left {
+  background-color: #d9e0e8;
+  width: 300px;
+  position: fixed;
+  height: 100%;
 }
-.left_box{
-    margin-left: 0.7rem;
-    /* position: fixed; */
-
+.left_box {
+  margin-left: 0.7rem;
 }
+ 
+@media screen and (max-width: 786px) {
+  .left {
+    width: 230px;
+  }
+}
+
+/* @media screen and (max-width: 480px) {
+  .left {
+    display: none;
+  } 
+} */

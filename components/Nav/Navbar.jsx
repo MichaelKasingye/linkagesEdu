@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import navStyles from "./Navbar.module.css";
-import logo from "../images/logo4.png"
+import navStyles from "./Navbar.module.css"; 
 import profilePic from "../images/user.png"; 
+import Logo from "../images/logo4.png";
 
 
 export default function Navbar(userProfile) { 
@@ -17,18 +17,17 @@ const [showMe, setShowMe] = useState(false);
     <>
       <nav className={navStyles.navbar}>
         <Link href="/" >
-          <a >
-          <div className={navStyles.brand}>
-              <Image
-                loader={ ({ src, width, quality }) => {
-                    return `${src}`
-                  }}
-                 src={logo}
-                  alt="Profile pic"
-                 width={100}
-                height={90}
-                 />
-          </div></a>
+          <a className={navStyles.brand}>
+            <Image
+              loader={({ src, width, quality }) => {
+                return `${src}`;
+              }}
+              src={Logo}
+              alt="logo"
+              width={80}
+              height={80}
+            />
+          </a>
         </Link>
         <ul className={navStyles.links}>
           <li className={navStyles.navlink}>
@@ -43,19 +42,20 @@ const [showMe, setShowMe] = useState(false);
           <li className={navStyles.navlink}>
             <Link href="/">Events</Link>
           </li>
-        </ul> 
-          <div className={navStyles.user} onClick={toggle}>
-            <div className={navStyles.name}>John</div>
-             <Image
-                loader={ ({ src, width, quality }) => {
-                    return `${src}`
-                  }}
-                 src={profilePic}
-                  alt="Profile pic"
-                 width={45}
-                height={45}
-                 />
-          </div> 
+        </ul>
+        <div className={navStyles.user} onClick={toggle}>
+          <div className={navStyles.name}>John</div>
+          <Image
+            loader={({ src, width, quality }) => {
+              return `${src}`;
+            }}
+            src={profilePic}
+            alt="Profile pic"
+            width={45}
+            height={45}
+            className={navStyles.img}
+          />
+        </div>
       </nav>
       <div
         style={{ display: showMe ? "block" : "none" }}

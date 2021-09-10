@@ -1,16 +1,17 @@
 .navbar {
-  height: 4.2rem;
+  height: 68px;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.65rem 3rem;
   position: sticky;
-  background-color: #fff;
-  z-index: 10;
+  background-color: #fff; 
   box-shadow: 0px 0px 8px 0px #000000;
-  font-size: 20px;
-}
+  font-size: 20px;  
+  width: 100%;
+  min-width: 800px;
+} 
 .links {
   display: flex;
 }
@@ -37,15 +38,14 @@
   display: inline;
 }
 .menu {
-  line-height: 20px;
+  line-height: 20px; 
+  height: fit-content;
+  background: #096691;  
+  color: #fff;
+  padding: 10px; 
+  right: 0;
   position: absolute;
   width: max-content;
-  height: fit-content;
-  background: #096691;
-  top: auto;
-  right: 0;
-  color: #fff;
-  padding: 10px;
 }
 .menuitem:hover {
   color: #d9e0e8;
@@ -66,17 +66,13 @@
   }
   .user {
     margin-left: 15px;
-  }
+  } 
+  
 }
 
 @media screen and (max-width: 480px) {
-  .navlink {
-    margin: 0 0.2rem;
-    font-weight: 400;
-    font-size: 16px;
-  }
-
-  .user {
-    margin-left: 20px;
+  .menu{
+   min-width: 800px; 
+   position: relative;
   }
 }

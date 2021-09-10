@@ -23,3 +23,8 @@
    line-height: 1.2;  
    padding: 0 2px;
  }
+
+ .img:hover{
+   transition: 1s ease-in;
+  transform: scale(1.5); 
+}
