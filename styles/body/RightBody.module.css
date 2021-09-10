@@ -5,6 +5,7 @@
   background-color: #e5e5e5;
   padding-top: 20px;
   margin: auto;
+  margin-left:300px; 
 }
 
 .FormsText {
@@ -23,23 +24,14 @@
   color: #096691;
   margin: 10px 0;
 }
-
-/* .FormsTextArea {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 30px;
-  max-width: 400px;
-} */
+ 
 .FormsText textarea {
   /* height: 40px; */
   border-radius: 8px;
   border: 2px solid #34495e;
   background-color: transparent;
-}
-/* .right {
-  padding-right: 100px;
-  background-color: #e5e5e5;
-} */
+} 
+
 .imageupload {
   display: flex;
   flex-direction: column;
@@ -62,5 +54,9 @@
 @media screen and (max-width: 830px) {
   .right {
     margin: 15px 0 15px 15px;
+    margin-left:230px;
   }
 }
+ 
+
+

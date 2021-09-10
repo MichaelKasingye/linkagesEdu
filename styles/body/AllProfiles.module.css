@@ -14,5 +14,11 @@ margin-bottom: 50px;
   flex-direction: row;
   flex-wrap: wrap;
 }
-
+@media screen and (max-width: 480px) {
+  .flexitem{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+}
  
