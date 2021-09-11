@@ -9,34 +9,34 @@ function RightSide() {
   const [password, setPassword] = useState("");
 
   return (
-    <section className={rightCss.right}>
-      <div className={signStyles.container}>
-        <Image
-          loader={({ src, width, quality }) => {
-            return `${src}`;
-          }}
-          src={logo}
-          alt="EDU logo"
-          width={200}
-          height={140}
-          objectFit="contain"
+    // <section className={rightCss.right}>
+    <div className={signStyles.container}>
+      <Image
+        loader={({ src, width, quality }) => {
+          return `${src}`;
+        }}
+        src={logo}
+        alt="EDU logo"
+        width={200}
+        height={140}
+        objectFit="contain"
+      />
+      <form className={signStyles.grid}>
+        <h3>Log in</h3>
+        <input
+          placeholder="Enter email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <form className={signStyles.grid}>
-          <h3>Log in</h3>
-          <input
-            placeholder="Enter email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button>Login</button>
-        </form>
-      </div>
-    </section>
+        <input
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button>Login</button>
+      </form>
+    </div>
+    // </section>
   );
 }
 
