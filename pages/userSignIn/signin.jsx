@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from "react";
-import signStyles from "../styles/body/Signin.module.css";
-import {auth} from "../Firebase/firebase";
+import signStyles from "../../styles/body/Signin.module.css";
+import {auth} from "../../Firebase/firebase";
 // import { userinfo } from "../components/Utilities/userInfo";
-import { db,storage } from '../Firebase/firebase';
+import { db,storage } from '../../Firebase/firebase';
 
-import { useStateValue } from '../ContextAPI/StateProvider';
-import {actionTypes} from "../ContextAPI/Reducer";
+import { useStateValue } from '../../ContextAPI/StateProvider';
+import {actionTypes} from "../../ContextAPI/Reducer";
 
 function Signin() {
   const [email, setEmail] = useState("");
