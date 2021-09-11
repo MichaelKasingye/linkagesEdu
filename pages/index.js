@@ -14,6 +14,8 @@ export default function Home({info}) {
     </div>
   );
 }
+
+
 export const getStaticProps = async () => {
   let info = []
   try 

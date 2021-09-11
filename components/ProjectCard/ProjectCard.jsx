@@ -6,9 +6,11 @@ import projectImage from "../images/project1.png";
 // const myLoader = ({ src, width, quality }) => {
 //     return `${src}`
 //   }
-export default function ProfileCard({projectName, projectLink, projectDescription}) {
+export default function ProfileCard({projectName, projectLink, projectDescription,projectImage}) {
     return (
       <div className={styles.projectcard}>
+        {projectName, projectLink, projectDescription,projectImage && 
+        
         <Link href={projectLink}>
           <a target="_blank" rel="noopener noreferrer">
             {/* <Image src={projectImage} alt={projectName} width={300}  height={200} className={styles.img}/> */}
@@ -28,6 +30,7 @@ export default function ProfileCard({projectName, projectLink, projectDescriptio
             <p className={styles.description}>{projectDescription}</p>
           </a>
         </Link>
+        }
       </div>
     );
 }

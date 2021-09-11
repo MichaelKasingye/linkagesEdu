@@ -7,6 +7,7 @@ import Image from 'next/image'
 import TitleRight from '../../TitleRight/TitleRight';
 import SearchBar from '../../SearchBar/SearchBar';
 import {FormsText, FormsTextArea} from '../../Forms/Forms';
+import LeftSide from "../components/PersonalProfile/Left/LeftSide";
 
 import rightCss from '../../../styles/body/RightBody.module.css';
 import Modal from '../../Modal/Modal';
@@ -112,24 +113,6 @@ function RightSide({fireBaseData}) {
                                 //  update()
                             }).then((docRef) => {
                                 console.log("Document sent with ID: ", docRef.id );
-                                //update collection with document id
-                                // db.collection("profileApplications").update({
-                                //     id: docRef.id,
-                                //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                                //      imageUrl: url,
-                                //      name:name,
-                                //      email:email,
-                                //      phone:phone,
-                                //      bio:bio,
-                                //      technicalSkills:technicalSkills,
-                                //      otherSkills:otherSkills,
-                                //      projectName:projectName,
-                                //      projectDescription:projectDescription,
-                                //      projectLink:projectLink,
-                                //      projectImgLink:projectImgLink,
-                                //      certificateName:certificateName,
-                                //      certificateImage:certificateImage,
-                                // })
                             })
                             .catch((error) => {
                                 console.error("Error adding document: ", error);
@@ -274,7 +257,8 @@ const slug = `${id}`;
             <ButtonFilled text = "Add more" />
 
                 
-            </form>         {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
+            </form>     
+                {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
         <ButtonFilled text = "Submit" onClick={applyJob}/>
         </section>
     )

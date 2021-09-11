@@ -3,7 +3,12 @@
   display: flex;
   flex-direction: row;
 } 
+.profileContainer{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
+}
 .border{
     border-bottom: 3px solid #A82E2E;  
     margin: 5px 30px 20px 15%;

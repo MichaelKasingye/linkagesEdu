@@ -1,19 +1,33 @@
-import React from 'react'; 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import navStyles from "./Navbar.module.css"; 
 import profilePic from "../images/user.png"; 
 import Logo from "../images/logo4.png";
-
+import { useStateValue } from '../../ContextAPI/StateProvider';
+import { db, } from '../../Firebase/firebase';
 
 export default function Navbar(userProfile) { 
 const [showMe, setShowMe] = useState(false);
   function toggle(){
     setShowMe(!showMe);
   }
+  const [info, setInfo] = useState('');
+  
+  // const [{user}, dispatch] = useStateValue();
 
+  useEffect(() => {
+    db.collection('P&L_UserProfile').onSnapshot(snapshot => {
+        // console.log(snapshot.docs.map(doc => doc.data()));
+        console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+    })
+}, []);
+
+
+// console.log(info[0].data.photoURL); 
   return (
+
     <>
       <nav className={navStyles.navbar}>
         <Link href="/" >
@@ -44,17 +58,21 @@ const [showMe, setShowMe] = useState(false);
           </li>
         </ul>
         <div className={navStyles.user} onClick={toggle}>
-          <div className={navStyles.name}>John</div>
+          <div className={navStyles.name}>
+            {info && info[0].data.displayName}
+            </div>
+          {info && 
           <Image
             loader={({ src, width, quality }) => {
               return `${src}`;
             }}
-            src={profilePic}
+            src={info[0].data.photoURL}
             alt="Profile pic"
             width={45}
             height={45}
             className={navStyles.img}
           />
+          }
         </div>
       </nav>
       <div
