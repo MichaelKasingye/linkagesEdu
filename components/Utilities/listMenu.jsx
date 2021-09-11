@@ -28,7 +28,7 @@ export const profile = [
     },
     {
         list: "Share Profile",
-        link:"/share"
+        link:"/sharePage"
     },
     // {
     //     list: "All Profiles",
