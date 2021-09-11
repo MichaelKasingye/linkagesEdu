@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Image from "next/image";
+import logo from "../images/logo4.png";
 import signStyles from "../../styles/body/Signin.module.css";
 import rightCss from "../../styles/body/RightBody.module.css";
 
@@ -9,6 +11,16 @@ function RightSide() {
   return (
     <section className={rightCss.right}>
       <div className={signStyles.container}>
+        <Image
+          loader={({ src, width, quality }) => {
+            return `${src}`;
+          }}
+          src={logo}
+          alt="EDU logo"
+          width={200}
+          height={140}
+          objectFit="contain"
+        />
         <form className={signStyles.grid}>
           <h3>Log in</h3>
           <input
