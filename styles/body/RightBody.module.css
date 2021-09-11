@@ -14,18 +14,25 @@
   margin: 10px 30px;
   max-width: 400px;
 }
-.FormsText input {
+.ProfileFormsText {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 30px 10px 500px;
+  max-width: 400px;
+  /* overflow: scroll; */
+}
+.ProfileFormsText input {
   height: 40px;
   border-radius: 8px;
   background-color: transparent;
 }
 
-.FormsText label {
+.ProfileFormsText label {
   color: #096691;
   margin: 10px 0;
 }
  
-.FormsText textarea {
+.ProfileFormsText textarea {
   /* height: 40px; */
   border-radius: 8px;
   border: 2px solid #34495e;

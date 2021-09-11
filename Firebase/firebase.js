@@ -16,12 +16,13 @@ const config = {
 
   const db = !firebase.apps.length   ? firebase.initializeApp(config).firestore()  : firebase.app().firestore();
   const storage = !firebase.apps.length   ? firebase.initializeApp(config).storage()  : firebase.app().storage();
+  const auth = !firebase.apps.length   ? firebase.initializeApp(config).auth()  : firebase.app().auth();
 
   // const auth = firebase.auth();
   // const storage = firebase.storage();
   
   export{db,   
-    //  auth, 
+     auth, 
       storage,
       };
   // export default !firebase.apps.length ? firebaseApp : firebase.app();

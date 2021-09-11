@@ -43,47 +43,13 @@ console.log(server);
         onClick={() => alert("Search button")}
       />
 
-      {/* {opport.map(
-        ({ key, jobTitle, company, location, paragraph, deadline }) => (
-          <div key={key} className={opportStyles.flexitem}>
-            <OpportunityCard
-              key={key}
-              jobTitle={jobTitle}
-              company={company}
-              location={location}
-              paragraph={paragraph}
-              deadline={deadline}
-            />
-          </div>
-        )
-      )} */}
-
-
-
 <div className={opportStyles.flexitem}>
 
 {typeof server != "undefined" ? (
         
         server.map(
           (job) => (
-        //     <div 
-        //     key={Math.random()} 
-        //     >
-        // <ModalJobOpportunities
-        // label="Apply"
-        // key={Math.random()} 
-        // jobTitle={job.jobTitle} 
-        // company={job.coName} 
-        // location={job.location} 
-        // JobDescription={job.jobDescription}
-        // requiredQualifications={job.qualifications} 
-        // jobCategories={job.jobCategory} 
-        // deadline={job.deadline}/>
-        //     </div>
-        // <h1 key={Math.random()}>sdsds
-        // {console.log(job.data.jobTitle)}
-        // </h1>
-        <OpportunityCard
+          <OpportunityCard
         Jid={job.id}
           key={job.id}
           jobTitle={job.jobTitle}
@@ -98,31 +64,7 @@ console.log(server);
               <h4>Loading....</h4>
               )}
 
-{/* 
-{alljobs.map(
-        (job) => (
-          <div 
-          key={Math.random()} 
-          >
-{    console.log(alljobs)
-}
-            
-<ModalJobOpportunities
- label="Apply"
- key={key} 
- jobTitle={jobTitle} 
- company={company} 
- location={location} 
- JobDescription={paragraph}
- requiredQualifications={paragraph} 
- jobCategories={jobTitle} 
- deadline={deadline}/>
-          </div>
-        )
-      )} */}
-
-
-         
+        
 </div>
 
     </section>

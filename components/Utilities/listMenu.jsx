@@ -20,16 +20,20 @@ export const profile = [
     },
     {
         list: "Edit Profile",
-        link:"/profile"
+        link:"/editProfile/editprofile"
     },
     {
         list: "Delete Profile",
         link:"/profile"
     },
     {
-        list: "All Profiles",
-        link:"/allProfiles"
+        list: "Share Profile",
+        link:"/sharePage"
     },
+    // {
+    //     list: "All Profiles",
+    //     link:"/allProfiles"
+    // },
 ] 
 export const opportunity = [
     {

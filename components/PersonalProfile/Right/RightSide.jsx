@@ -50,7 +50,7 @@ function RightSide() {
     
     <section className={rightCss.right}>
       {/* {console.log(data)} */}
-      {/* <ProfileHeader profileDetails="" /> */}
+      {/* <ProfileHeader profileDetails={profileDetails} /> */}
       <div className={profileStyle.border}></div>
       <div>
         <TitleRight title="Bio" />
