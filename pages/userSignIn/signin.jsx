@@ -12,7 +12,7 @@ function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [{user}, dispatch] = useStateValue();
+  // const [{user}, dispatch] = useStateValue();
   // const [{}, dispatch] = useStateValue()
   const router = useRouter()
 
@@ -89,14 +89,14 @@ function Signin() {
         phoneNumber: localStorage.getItem('phoneNumber') || "",
         emailVerified: localStorage.getItem('emailVerified') || "",
     }
-    dispatch({
-      type: actionTypes.SET_SEARCH_TERM,
-      user: userinfo
-  })
+  //   dispatch({
+  //     type: actionTypes.SET_SEARCH_TERM,
+  //     user: userinfo
+  // })
     console.log( userinfo);
       
-    }, [dispatch])
-    console.log( user);
+    }, [])
+    // console.log( user);
 
   return (
     <div className={signStyles.container}>
