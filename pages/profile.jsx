@@ -14,31 +14,57 @@ import ProjectCard from "../components/ProjectCard/ProjectCard";
 
 import rightCss from "../styles/body/RightBody.module.css";
 import style from "../styles/body/Profile.module.css";
-import { useStateValue } from '../ContextAPI/StateProvider';
+// import { useStateValue } from '../ContextAPI/StateProvider';
 import Paragraph from '../components/Paragraph/Paragraph';
 
+import Layout from '../components/Layout'
+import Router from "next/router";
+import Image from 'next/image';
+import styles from "../components/ProfileHeader/ProfileHeader.module.css";
+
 export default function Profile() {
+
   const [info, setInfo] = useState('');
-  const [{user}, dispatch] = useStateValue();
+  // const [{user}, dispatch] = useStateValue();
 
   useEffect(() => {
     db.collection('P&L_UserProfile').onSnapshot(snapshot => {
         // console.log(snapshot.docs.map(doc => doc.data()));
-        console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
-setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+        // console.log(snapshot.docs.map(doc => (doc.data().displayName))
+        // .filter(filterData => filterData.Id )
+        // );
+setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.data.userId === localStorage.getItem("userId")));
     })
+
+// const dataId =  typeof info[0] !=='undefined'?info[0].data.Id : "no Data yet" ;
+// console.log(info[0].data);
+
+//      if (dataId) {
+//         console.log("user logged");
+//         // Router.push("/");
+
+//       } else {
+//         Router.push( "/");
+//       }
 }, []);
 
-const data = info? info[0].data: "no Data yet" ;
-
-console.log(data.projectLink);
+const data = typeof info[0] !=='undefined'?info[0].data : "no Data yet" ;
+const fname = data.fisrtName;
+// console.log( data);
   return (
  <div className={style.container}>
       <LeftSide />
-
-      <section className={rightCss.right}>
+{typeof data !=='undefined'?<section className={rightCss.right}>
       {/* {console.log(data)} */}
-      <ProfileHeader profileDetails={info} />
+      <ProfileHeader 
+      profileDetails={data} 
+      fisrtName ={data.fisrtName}
+      lastName = {data.lastName}
+      jobTItle= {data.jobTItle}
+      phoneNumber={data.phoneNumber}
+      email={data.email}
+      image={data.photoURL}/>
+
       <div className={profileStyle.border}></div>
       <div>
         <TitleRight title="Bio" />
@@ -62,18 +88,7 @@ console.log(data.projectLink);
       <Border />
       <div className={profileStyle.allProjects}>
         <TitleRight title="Portfolio" />
-        {/* <div className={profileStyle.flexitem}>
-          {projectDetails.map(
-            ({ projectName, projectDescription, projectLink, key }) => (
-              <ProjectCard
-                key={key}
-                projectName={projectName}
-                projectLink={projectLink}
-                projectDescription={projectDescription}
-              />
-            )
-          )}
-        </div> */}
+     
          <div className={profileStyle.flexitem}>
           
               <ProjectCard
@@ -85,19 +100,9 @@ console.log(data.projectLink);
           
         </div>
       </div>
-    </section>
+    </section> :"Edit profile"}
+      
     </div>
   )
 } 
 
-// export const getServerSideProps = async (context) => {
-//   const docRef = doc(db, "profileApplications", context.params.id);
-//   const docSnap = await getDoc(docRef);
-//   const user = await docSnap.data()
-
-//   return{
-//     props:{
-//       post
-//     }
-//   }
-// }

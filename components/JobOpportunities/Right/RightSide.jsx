@@ -42,7 +42,7 @@ console.log(server);
         placeholder="Search.."
         onClick={() => alert("Search button")}
       />
-
+{/* {typeof server != "undefined" ? ( */}
 <div className={opportStyles.flexitem}>
 
 {typeof server != "undefined" ? (
@@ -66,6 +66,8 @@ console.log(server);
 
         
 </div>
+{/* // ):("loading") */}
+
 
     </section>
   );

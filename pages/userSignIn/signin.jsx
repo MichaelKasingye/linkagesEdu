@@ -1,9 +1,11 @@
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import React, { useEffect, useState } from "react";
 import signStyles from "../../styles/body/Signin.module.css";
 import {auth} from "../../Firebase/firebase";
 // import { userinfo } from "../components/Utilities/userInfo";
 import { db,storage } from '../../Firebase/firebase';
+import Image from "next/image";
+import logo from "../../components/images/logo4.png";
 
 import { useStateValue } from '../../ContextAPI/StateProvider';
 import {actionTypes} from "../../ContextAPI/Reducer";
@@ -14,23 +16,25 @@ function Signin() {
   const [message, setMessage] = useState("");
   // const [{user}, dispatch] = useStateValue();
   // const [{}, dispatch] = useStateValue()
-  const router = useRouter()
+
+  // const router = useRouter()
 
   function login(event){
     event.preventDefault();
     auth
     .signInWithEmailAndPassword(email,password)
     .then((userCredential)=>{
-      var userId = userCredential.user.uid;
+      var userId = userCredential.user.uid || "123_no_id";
       // var user = userCredential.user || "anonymous";
       var displayName = userCredential.user.displayName || "Anonymous";
-      var email = userCredential.user.email;
-      var photoURL = userCredential.user.photoURL || "https://avatars.githubusercontent.com/u/42036497?v=4";
-      var phoneNumber = userCredential.user.phoneNumber || "";
+      var email = userCredential.user.email || "Anonymous";
+      var photoURL = userCredential.user.photoURL || "https://i.pinimg.com/originals/03/87/f4/0387f42a06dcad1bde003acf1f5882f0.jpg";
+      var phoneNumber = userCredential.user.phoneNumber || "1234";
       var emailVerified = userCredential.emailVerified || false; //boolean value
-      // console.log('customMessage');
+      console.log(displayName);
 
-        console.log(userCredential);
+        // console.log(userCredentialuserCredential.uid);
+
         localStorage.setItem('userId', userId);
         localStorage.setItem('emailVerified', emailVerified);
         localStorage.setItem('email', email);
@@ -64,7 +68,7 @@ function Signin() {
         let customMessage = "Credentials Confirmed "
         setMessage(customMessage);
         // console.log(email);
-        router.push("/profile");
+        // router.push("/profile");
     
     })
     .catch((error)=>{
@@ -93,13 +97,25 @@ function Signin() {
   //     type: actionTypes.SET_SEARCH_TERM,
   //     user: userinfo
   // })
-    console.log( userinfo);
+    // console.log( userinfo[0]);
       
     }, [])
     // console.log( user);
 
   return (
     <div className={signStyles.container}>
+
+ <Image
+        loader={({ src, width, quality }) => {
+          return `${src}`;
+        }}
+        src={logo}
+        alt="EDU logo"
+        width={200}
+        height={140}
+        objectFit="contain"
+      />
+
       <form className={signStyles.grid}>
         <h3>Log in</h3>
         <input

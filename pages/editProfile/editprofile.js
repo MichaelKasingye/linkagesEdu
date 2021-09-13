@@ -36,15 +36,18 @@ function Editprofile() {
     useEffect(() => {
         db.collection('P&L_UserProfile').onSnapshot(snapshot => {
             // console.log(snapshot.docs.map(doc => doc.data()));
-            console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+            // console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
             setId(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
-    setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+    setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.data.userId === localStorage.getItem("userId")));
         })
     }, []);
 
-// console.log(info);
-const userId = info? id[0].id: "no Id" 
-const data = info? info[0].data: "no Data yet" 
+const docId = typeof info[0] !=='undefined'? id[0].id: "no Id" 
+const data = typeof info[0] !=='undefined'? info[0].data: "no Data yet" 
+
+const userId = typeof info[0] !=='undefined'? id[0].data.userId: "no Id" 
+
+// console.log(userId);
 
 
 
@@ -65,8 +68,8 @@ projectImgLink:data.projectImgLink || "Anonymous",
 certificateName:data.certificateName || "Anonymous",
 certificateImage:data.certificateImage || "Anonymous",
 }
-console.log(userId);
-console.log(data);
+// console.log(docId);
+// console.log(data);
 
 
     const handleChange = (e) => {
@@ -101,7 +104,7 @@ console.log(data);
                     .then(url => {
                         // post image inside db
                         // const docRef =  db.collection("profileApplications")
-                        db.collection("P&L_UserProfile").doc(userId).update({
+                        db.collection("P&L_UserProfile").doc(docId).update({
                             photoURL: url,
                              fisrtName:fname,
                              lastName:lname,
@@ -135,7 +138,7 @@ console.log(data);
 function upDateProfileBody(event){
     event.preventDefault();
 
-    db.collection("P&L_UserProfile").doc(id).update({
+    db.collection("P&L_UserProfile").doc(docId).update({
         bio:bio,
         technicalSkills:technicalSkills,
         otherSkills:otherSkills,
