@@ -5,7 +5,8 @@ import navStyles from "./Navbar.module.css";
 import profilePic from "../images/user.png"; 
 import Logo from "../images/logo4.png";
 import { useStateValue } from '../../ContextAPI/StateProvider';
-import { db, } from '../../Firebase/firebase';
+import { db,auth } from '../../Firebase/firebase';
+import Router from "next/router";
 
 export default function Navbar(userProfile) { 
 const [showMe, setShowMe] = useState(false);
@@ -13,7 +14,9 @@ const [showMe, setShowMe] = useState(false);
     setShowMe(!showMe);
   }
   const [info, setInfo] = useState('');
-  const userPic =info? info[0].data.photoURL : "https://i.pinimg.com/originals/03/87/f4/0387f42a06dcad1bde003acf1f5882f0.jpg"
+
+
+  
   // const [{user}, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -25,7 +28,36 @@ setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterDa
 }, []);
 
 
-// console.log(info[0].data.photoURL); 
+function signOut(){
+  auth.signOut().then(() => {
+  // Sign-out successful.
+       localStorage.removeItem('userId');
+       localStorage.removeItem('Id');
+
+        localStorage.removeItem('emailVerified');
+        localStorage.removeItem('email');
+        localStorage.removeItem('displayName');
+        localStorage.removeItem('photoURL');
+        localStorage.removeItem('phoneNumber');
+        localStorage.removeItem('emailVerified');
+  console.log("you have logged out");
+Router.push( "/");
+
+}).catch((error) => {
+  // An error happened.
+  console.log('Message Error', error);
+});
+}
+
+
+// const info = receivedData || 
+  const userPic = typeof info[0] !=='undefined'? info[0].data.photoURL : "https://i.pinimg.com/originals/03/87/f4/0387f42a06dcad1bde003acf1f5882f0.jpg";
+const userName = typeof info[0] !=='undefined'? info[0].data.displayName : "Anonymous";
+
+
+
+
+console.log(userPic); 
   return (
 
     <>
@@ -59,7 +91,7 @@ setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterDa
         </ul>
         <div className={navStyles.user} onClick={toggle}>
           <div className={navStyles.name}>
-            {info && info[0].data.displayName}
+            {userName}
             </div>
           {info && 
           <Image
@@ -83,7 +115,9 @@ setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterDa
           <Link href="/profile">View Profile</Link>
         </p>
         <p className={navStyles.menuitem}>
-          <Link href="/logout">Logout</Link>
+        <div onClick={signOut}>
+          <Link href="#" >Logout</Link>
+          </div>
         </p>
       </div>
     </>

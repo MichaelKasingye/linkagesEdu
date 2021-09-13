@@ -14,57 +14,55 @@ import ProjectCard from "../components/ProjectCard/ProjectCard";
 
 import rightCss from "../styles/body/RightBody.module.css";
 import style from "../styles/body/Profile.module.css";
-import { useStateValue } from '../ContextAPI/StateProvider';
+// import { useStateValue } from '../ContextAPI/StateProvider';
 import Paragraph from '../components/Paragraph/Paragraph';
 // import { protectedPage } from '../components/Utilities/functions';
 // import { useRouter } from 'next/router'
+import Router from "next/router";
 
 
-function SharePage() {
+export default function SharePage() {
 
-    const [info, setInfo] = useState('');
-    const [localStoreId, setLocalStoreId] = useState('');
-
-    // const [{user}, dispatch] = useStateValue();
-    // const router = useRouter()
   
-    useEffect(() => {
-      db.collection('P&L_UserProfile').onSnapshot(snapshot => {
-          // console.log(snapshot.docs.map(doc => doc.data()));
-          // console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
-  setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
-      })
-      setLocalStoreId(localStorage.getItem("Id"));
-  }, []);
-  
-  // console.log(info);
-  
-  
-  const data = info? info[0].data: "no Data yet" ;
-  const idUser = info? info[0].id: "no Data yet" ;
-  const storeId = localStoreId;
+  const [info, setInfo] = useState('');
+  // const [{user}, dispatch] = useStateValue();
 
-//PROTECTED ROUTE
-  // console.log(idUser);
-  //   if(idUser != localStoreId ){
-  //     console.log("not user");
-  //     router.push('/userSignIn/signin')
-      
-  //   }else{
-  //     console.log("yes user");
+  useEffect(() => {
+    db.collection('P&L_UserProfile').onSnapshot(snapshot => {
+        // console.log(snapshot.docs.map(doc => doc.data()));
+        // console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.data.userId === localStorage.getItem("userId")));
+    })
 
-  // }
+// const dataId =  typeof info[0] !=='undefined'?info[0].data.Id : "no Data yet" ;
+// // console.log(dataId);
 
+//      if (dataId) {
+//         console.log("user logged");
+//         // Router.push("/");
 
+//       } else {
+//         Router.push( "/");
+//       }
 
+}, []);
 
-    return (
-        <div className={style.container}>
-      {/* <LeftSide /> */}
-
-      <section className={rightCss.right}>
+const data = typeof info[0] !=='undefined'?info[0].data : "no Data yet" ;
+const fname = data.fisrtName;
+console.log( data);
+  return (
+ <div className={style.container}>
+{typeof data !=='undefined'?<section className={rightCss.right}>
       {/* {console.log(data)} */}
-      <ProfileHeader profileDetails={info} />
+      <ProfileHeader 
+      profileDetails={data} 
+      fisrtName ={data.fisrtName}
+      lastName = {data.lastName}
+      jobTItle= {data.jobTItle}
+      phoneNumber={data.phoneNumber}
+      email={data.email}
+      image={data.photoURL}/>
+
       <div className={profileStyle.border}></div>
       <div>
         <TitleRight title="Bio" />
@@ -88,18 +86,7 @@ function SharePage() {
       <Border />
       <div className={profileStyle.allProjects}>
         <TitleRight title="Portfolio" />
-        {/* <div className={profileStyle.flexitem}>
-          {projectDetails.map(
-            ({ projectName, projectDescription, projectLink, key }) => (
-              <ProjectCard
-                key={key}
-                projectName={projectName}
-                projectLink={projectLink}
-                projectDescription={projectDescription}
-              />
-            )
-          )}
-        </div> */}
+     
          <div className={profileStyle.flexitem}>
           
               <ProjectCard
@@ -111,10 +98,9 @@ function SharePage() {
           
         </div>
       </div>
-    </section>
+    </section> :"Edit profile"}
+      
     </div>
-    )
-}
+  )
+} 
 
-export default SharePage
-    
