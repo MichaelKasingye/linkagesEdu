@@ -17,7 +17,7 @@ import style from "../styles/body/Profile.module.css";
 import { useStateValue } from '../ContextAPI/StateProvider';
 import Paragraph from '../components/Paragraph/Paragraph';
 // import { protectedPage } from '../components/Utilities/functions';
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 
 function SharePage() {
@@ -26,7 +26,7 @@ function SharePage() {
     const [localStoreId, setLocalStoreId] = useState('');
 
     // const [{user}, dispatch] = useStateValue();
-    const router = useRouter()
+    // const router = useRouter()
   
     useEffect(() => {
       db.collection('P&L_UserProfile').onSnapshot(snapshot => {
