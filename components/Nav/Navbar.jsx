@@ -13,7 +13,7 @@ const [showMe, setShowMe] = useState(false);
     setShowMe(!showMe);
   }
   const [info, setInfo] = useState('');
-  
+  const userPic =info? info[0].data.photoURL : "https://i.pinimg.com/originals/03/87/f4/0387f42a06dcad1bde003acf1f5882f0.jpg"
   // const [{user}, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -66,7 +66,7 @@ setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterDa
             loader={({ src, width, quality }) => {
               return `${src}`;
             }}
-            src={info[0].data.photoURL}
+            src={userPic}
             alt="Profile pic"
             width={45}
             height={45}

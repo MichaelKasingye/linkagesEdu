@@ -6,6 +6,7 @@ import userProfilePic from "../images/user.png"
 
 export default function ProfleHeader({profileDetails}) {
   // console.log(profileDetails);
+  const userPic = profileDetails ? profileDetails[0].data.photoURL : "https://i.pinimg.com/originals/03/87/f4/0387f42a06dcad1bde003acf1f5882f0.jpg"
     return (
       <div className={styles.profileHeader}>
         {profileDetails &&
@@ -27,7 +28,7 @@ export default function ProfleHeader({profileDetails}) {
             loader={({ src, width, quality }) => {
               return `${src}`;
             }}
-            src={profileDetails[0].data.photoURL}
+            src={userPic}
             alt="name"
             width={150}
             height={150}

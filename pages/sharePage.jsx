@@ -16,24 +16,47 @@ import rightCss from "../styles/body/RightBody.module.css";
 import style from "../styles/body/Profile.module.css";
 import { useStateValue } from '../ContextAPI/StateProvider';
 import Paragraph from '../components/Paragraph/Paragraph';
+// import { protectedPage } from '../components/Utilities/functions';
+import { useRouter } from 'next/router'
 
 
 function SharePage() {
 
     const [info, setInfo] = useState('');
-    const [{user}, dispatch] = useStateValue();
+    const [localStoreId, setLocalStoreId] = useState('');
+
+    // const [{user}, dispatch] = useStateValue();
+    const router = useRouter()
   
     useEffect(() => {
       db.collection('P&L_UserProfile').onSnapshot(snapshot => {
           // console.log(snapshot.docs.map(doc => doc.data()));
-          console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+          // console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
   setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
       })
+      setLocalStoreId(localStorage.getItem("Id"));
   }, []);
   
-  const data = info? info[0].data: "no Data yet" ;
+  // console.log(info);
   
-  console.log(data.projectLink);
+  
+  const data = info? info[0].data: "no Data yet" ;
+  const idUser = info? info[0].id: "no Data yet" ;
+  const storeId = localStoreId;
+
+//PROTECTED ROUTE
+  // console.log(idUser);
+  //   if(idUser != localStoreId ){
+  //     console.log("not user");
+  //     router.push('/userSignIn/signin')
+      
+  //   }else{
+  //     console.log("yes user");
+
+  // }
+
+
+
 
     return (
         <div className={style.container}>

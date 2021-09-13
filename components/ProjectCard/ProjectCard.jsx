@@ -7,6 +7,8 @@ import projectImage from "../images/project1.png";
 //     return `${src}`
 //   }
 export default function ProfileCard({projectName, projectLink, projectDescription,projectImage}) {
+
+  const userPic = projectImage ? projectImage : "https://i.pinimg.com/originals/d4/d7/dc/d4d7dc8ec7f2e73a296d2d1a3adbe087.jpg"
     return (
       <div className={styles.projectcard}>
         {projectName, projectLink, projectDescription,projectImage && 
@@ -19,7 +21,7 @@ export default function ProfileCard({projectName, projectLink, projectDescriptio
               loader={({ src, width, quality }) => {
                 return `${src}`;
               }}
-              src={projectImage}
+              src={userPic}
               alt={projectName}
               width={10}
               height={6}
