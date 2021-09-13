@@ -7,10 +7,10 @@ import Image from 'next/image'
 import TitleRight from '../../TitleRight/TitleRight';
 import SearchBar from '../../SearchBar/SearchBar';
 import {FormsText, FormsTextArea} from '../../Forms/Forms';
-import LeftSide from "../components/PersonalProfile/Left/LeftSide";
+// import LeftSide from "../components/PersonalProfile/Left/LeftSide";
 
 import rightCss from '../../../styles/body/RightBody.module.css';
-import Modal from '../../Modal/Modal';
+// import Modal from '../../Modal/Modal';
 import { ButtonFilled } from '../../Button/Button';
 
 
