@@ -19,27 +19,27 @@ const [showMe, setShowMe] = useState(false);
   
   // const [{user}, dispatch] = useStateValue();
 
-  useEffect(() => {
-    db.collection('P&L_UserProfile').onSnapshot(snapshot => {
-        // console.log(snapshot.docs.map(doc => doc.data()));
-        console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
-setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
-    })
-}, []);
+//   useEffect(() => {
+//     db.collection('P&L_UserProfile').onSnapshot(snapshot => {
+//         // console.log(snapshot.docs.map(doc => doc.data()));
+//         console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+// setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));
+//     })
+// }, []);
 
 
 function signOut(){
   auth.signOut().then(() => {
   // Sign-out successful.
-       localStorage.removeItem('userId');
-       localStorage.removeItem('Id');
+      //  localStorage.removeItem('userId');
+      //  localStorage.removeItem('Id');
 
-        localStorage.removeItem('emailVerified');
-        localStorage.removeItem('email');
-        localStorage.removeItem('displayName');
-        localStorage.removeItem('photoURL');
-        localStorage.removeItem('phoneNumber');
-        localStorage.removeItem('emailVerified');
+      //   localStorage.removeItem('emailVerified');
+      //   localStorage.removeItem('email');
+      //   localStorage.removeItem('displayName');
+      //   localStorage.removeItem('photoURL');
+      //   localStorage.removeItem('phoneNumber');
+      //   localStorage.removeItem('emailVerified');
   console.log("you have logged out");
 Router.push( "/");
 
