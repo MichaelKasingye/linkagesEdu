@@ -51,13 +51,13 @@ Router.push( "/");
 
 
 // const info = receivedData || 
-  const userPic = typeof info[0] !=='undefined'? info[0].data.photoURL : "https://i.pinimg.com/originals/03/87/f4/0387f42a06dcad1bde003acf1f5882f0.jpg";
-const userName = typeof info[0] !=='undefined'? info[0].data.displayName : "Anonymous";
+//   const userPic = typeof info[0] !=='undefined'? info[0].data.photoURL : "https://i.pinimg.com/originals/03/87/f4/0387f42a06dcad1bde003acf1f5882f0.jpg";
+// const userName = typeof info[0] !=='undefined'? info[0].data.displayName : "Anonymous";
 
 
 
 
-console.log(userPic); 
+// console.log(userPic); 
   return (
 
     <>
@@ -91,9 +91,9 @@ console.log(userPic);
         </ul>
         <div className={navStyles.user} onClick={toggle}>
           <div className={navStyles.name}>
-            {userName}
+            {/* {userName} */}.
             </div>
-          {info && 
+          {/* {info && 
           <Image
             loader={({ src, width, quality }) => {
               return `${src}`;
@@ -104,7 +104,7 @@ console.log(userPic);
             height={45}
             className={navStyles.img}
           />
-          }
+          } */}
         </div>
       </nav>
       <div
