@@ -77,16 +77,16 @@ Router.push( "/");
         </Link>
         <ul className={navStyles.links}>
           <li className={navStyles.navlink}>
-            <Link href="/">Enrollment</Link>
+            <Link href="https://enrollment.vercel.app/">Enrollment</Link>
           </li>
           <li className={navStyles.navlink}>
-            <Link href="/">Learning</Link>
+            <Link href="https://outboxlms.vercel.app/">Learning</Link>
           </li>
           <li className={`${navStyles.navlink} ${navStyles.active}`}>
-            <Link href="/">Linkages</Link>
+            <Link href="https://outboxlinkages.vercel.app/">Linkages</Link>
           </li>
           <li className={navStyles.navlink}>
-            <Link href="/">Events</Link>
+            <Link href="https://outboxevents.netlify.app/">Events</Link>
           </li>
         </ul>
         <div className={navStyles.user} onClick={toggle}>
