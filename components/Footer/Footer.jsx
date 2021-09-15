@@ -32,13 +32,13 @@ function Footer() {
         <div>
           <h4>WHAT WE DO</h4>
           <li>
-            <Link href="#home">Lorem</Link>
+            <Link href="#home">Teach</Link>
           </li>
           <li>
-            <Link href="#about">Lorem</Link>
+            <Link href="#about">Mentor</Link>
           </li>
           <li>
-            <Link href="#about">Lorem</Link>
+            <Link href="#about">Develop</Link>
           </li>
         </div>
         <div>
