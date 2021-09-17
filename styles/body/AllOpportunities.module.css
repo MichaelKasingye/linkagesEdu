@@ -9,7 +9,6 @@
 
 .flexitem > div {
   flex: 0 0 300px;
-  margin: auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -26,6 +25,7 @@
   .flexitem {
     margin: 10px;
     flex-direction: row;
+    width: 100%;
   }
   .flexitem > div {
     flex-basis: 50%;

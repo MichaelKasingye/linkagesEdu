@@ -80,13 +80,13 @@ function Footer() {
           </p>
         </div>
         <div className={styles.social}>
-          <a href="https://facebook.com/">
+          <a href="https://facebook.com/OutboxEdu">
             <FiFacebook />
           </a>
-          <a href="https://linkedin.com/">
+          <a href="https://linkedin.com/company/outboxuganda/">
             <FiLinkedin />
           </a>
-          <a href="https://linkedin.com/">
+          <a href="https://twitter.com/EduOutbox">
             <FiTwitter />
           </a>
         </div>

@@ -5,8 +5,6 @@ import Footer from "./Footer/Footer";
 //import styles from "../styles/global_css/Layout.module.css";
 
 const Layout = ({ children }) => {
-
-
   return (
     <>
       {/* <Meta /> */}

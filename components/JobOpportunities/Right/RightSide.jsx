@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { db } from '../../../Firebase/firebase';
+import { db } from "../../../Firebase/firebase";
 import firebase from "firebase";
 
 import TitleRight from "../../TitleRight/TitleRight";
@@ -9,12 +9,9 @@ import rightCss from "../../../styles/body/RightBody.module.css";
 import OpportunityCard from "../../Opportunity/OpportunityCard";
 import ModalJobOpportunities from "../../ModalJobOpportunities/Modal";
 
-
-
-
-function RightSide({server}) {
+function RightSide({ server }) {
   const [alljobs, setAlljobs] = useState();
-console.log(server);
+  console.log(server);
 
   // useEffect(() => {
   //   db.collection('jobs').onSnapshot(snapshot => {
@@ -34,41 +31,32 @@ console.log(server);
   //    };
   //    }, []);
 
-  
   return (
     <section className={rightCss.right}>
       <TitleRight title="Job Opportunities" />
-      <SearchBar
+      {/* <SearchBar
         placeholder="Search.."
         onClick={() => alert("Search button")}
-      />
-{/* {typeof server != "undefined" ? ( */}
-<div className={opportStyles.flexitem}>
-
-{typeof server != "undefined" ? (
-        
-        server.map(
-          (job) => (
-          <OpportunityCard
-        Jid={job.id}
-          key={job.id}
-          jobTitle={job.jobTitle}
-          company={job.coName}
-          location={job.locationion}
-          paragraph={job.jobDescription}
-          deadline={job.deadline}
-        />
-          )
-        )
-              ) : (
-              <h4>Loading....</h4>
-              )}
-
-        
-</div>
-{/* // ):("loading") */}
-
-
+      /> */}
+      {/* {typeof server != "undefined" ? ( */}
+      <div className={opportStyles.flexitem}>
+        {typeof server != "undefined" ? (
+          server.map((job) => (
+            <OpportunityCard
+              Jid={job.id}
+              key={job.id}
+              jobTitle={job.jobTitle}
+              company={job.coName}
+              location={job.locationion}
+              paragraph={job.jobDescription}
+              deadline={job.deadline}
+            />
+          ))
+        ) : (
+          <h4>Loading....</h4>
+        )}
+      </div>
+      {/* // ):("loading") */}
     </section>
   );
 }

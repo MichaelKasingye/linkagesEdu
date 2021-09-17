@@ -4,7 +4,8 @@
   color: #ffffff;
   width: 100%;
   min-width: 800px;
-  position: sticky; 
+  position: sticky;
+  font-family: Montserrat, sans-serif;
 }
 .footer h2 {
   text-align: center;
@@ -49,6 +50,7 @@
 }
 .flex2 li {
   list-style-type: none;
+  padding-top: 6px;
 }
 
 .flex2 li a {
@@ -61,7 +63,8 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 70px;
+  padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 .social {
@@ -74,8 +77,12 @@
   /* transition: 0.3s ease; */
   color: white;
   border-radius: 50%;
-  border: 1px black;
+  border: 1px solid white;
   padding: 8px;
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin: 4px;
 }
 .social a:hover {
   transform: scale(1.2);
@@ -83,6 +90,9 @@
 }
 
 @media screen and (max-width: 480px) {
+  .footer {
+    width: 100%;
+  }
   .flex1 {
     flex-direction: column;
     align-items: center;

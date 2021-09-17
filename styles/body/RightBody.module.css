@@ -4,8 +4,8 @@
   margin: 10px 65px 5px 48px;
   background-color: #e5e5e5;
   padding-top: 20px;
-  margin: auto;
-  margin-left:300px; 
+  /* margin: auto; */
+  margin-left: 300px;
 }
 
 .FormsText {
@@ -14,7 +14,6 @@
   margin: 10px 30px;
   max-width: 400px;
 }
-
 
 .FormsText input {
   height: 40px;
@@ -26,13 +25,13 @@
   color: #096691;
   margin: 10px 0;
 }
- 
+
 .FormsText textarea {
   /* height: 40px; */
   border-radius: 8px;
   border: 2px solid #34495e;
   background-color: transparent;
-} 
+}
 
 .ProfileFormsText {
   display: flex;
@@ -51,13 +50,13 @@
   color: #096691;
   margin: 10px 0;
 }
- 
+
 .ProfileFormsText textarea {
   /* height: 40px; */
   border-radius: 8px;
   border: 2px solid #34495e;
   background-color: transparent;
-} 
+}
 
 .imageupload {
   display: flex;
@@ -81,9 +80,6 @@
 @media screen and (max-width: 830px) {
   .right {
     margin: 15px 0 15px 15px;
-    margin-left:230px;
+    margin-left: 230px;
   }
 }
- 
-
-
