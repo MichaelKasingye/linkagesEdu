@@ -21,8 +21,8 @@ import BackdropOverlay from "../../components/Backdrop/Backdrop";
 import { doc, getDoc } from "firebase/firestore";
 // import Data from "../../components/transfer/Data";
 import Jobapplicationform from "../jobapplicationform";
-import { useStateValue } from '../../ContextAPI/StateProvider';
-import {actionTypes} from "../../ContextAPI/reducer";
+import { useStateValue } from '../../ContextAPI/StateProvider'; //ContextAPI/reducer
+import {actionTypes} from "../../ContextAPI/Reducer";
 
 
 
