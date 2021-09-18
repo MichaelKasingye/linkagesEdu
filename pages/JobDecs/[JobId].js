@@ -19,10 +19,22 @@ import BackdropOverlay from "../../components/Backdrop/Backdrop";
 // import Tag from "../../TechnicalSkills/Tag";
 // import Skills from "../../Skills/Skills";
 import { doc, getDoc } from "firebase/firestore";
+// import Data from "../../components/transfer/Data";
+import Jobapplicationform from "../jobapplicationform";
+import { useStateValue } from '../../ContextAPI/StateProvider';
+import {actionTypes} from "../../ContextAPI/reducer";
+
+
 
 export default function Jobdescription({data}) {
 
     const [info, setInfo] = useState('');
+    const [jobData, setJobData] = useState('');
+    const [clicked, setClicked] = useState(false);
+
+    //Context API
+    const [{}, dispatch] = useStateValue()
+
 console.log(data);
     const router = useRouter()
     const {
@@ -34,10 +46,33 @@ console.log(data);
       db.collection('jobs').onSnapshot(snapshot => {
           // console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === JobId));
   setInfo(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === JobId));
-      })
+// console.log(info[0].data);
+// setlocalStorage(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === JobId))
+
+// localStorage.setItem("jobData",jobData )
+})
+// setJobData(typeof info != "undefined" ? info[0] : "no data")
+// console.log(typeof info != "undefined" ? info[0] : "no data");
+//     localStorage.setItem("jobData",jobData )
     
   }, [JobId]);
 
+  const JobData =  [...info][0]?.data 
+  const JobDataInfo = info[0]?.data 
+
+  useEffect(() => {
+    setClicked(false)
+
+  }, []);
+// console.log(  JobData);
+
+function sendToContext(){
+  dispatch({
+    type: actionTypes.SET_ITEM,
+    info: typeof info != "undefined" ? info[0]?.data : "no data"
+})
+setClicked(true)
+}
 
   return (
     <div className={styles.container}>
@@ -64,15 +99,23 @@ console.log(data);
 
       <Paragraph text={info[0].data.deadline}  />
     
+<ButtonFilled text= "Confirm" onClick={sendToContext} />
 
-    
-      <Link href="/jobapplicationform" >
-     <a><BackdropOverlay text = "Apply"/></a> 
-        </Link>
+{clicked? 
+ <Link href="/jobapplicationform"  onClick={sendToContext}>
+     <a><BackdropOverlay text = "Apply" />
+     </a> 
+        </Link> : ""}
+
+     
     </section>
       ) : (
         <h3>Data not available yet..</h3>
-      )}
+        )}
+{/* <Data info = {jobData}/> */}
+        {/* <div style={{display:'none'}}>
+        <Jobapplicationform infor ={jobData}/>
+        </div> */}
     </div>
   );
 }

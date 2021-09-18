@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }) {
   const [info, setInfo] = useState('');
 
 //       useEffect(() => {
+  // const user = fire.auth().currentUser;
 //     db.collection('P&L_UserProfile').onSnapshot(snapshot => {
 //         // console.log(snapshot.docs.map(doc => doc.data()));
 //         // console.log(snapshot.docs.map(doc => ({id: doc.id,data:doc.data()})).filter(filterData => filterData.id === localStorage.getItem("Id")));

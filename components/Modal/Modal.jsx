@@ -60,7 +60,7 @@ function ModalComp(props) {
          {props.body}
         </p>
         <div  className={ModalCss.modalButtons}>
-        <ButtonFilled text = {props.yes} onClick={handleClose}/>
+        <ButtonFilled text = {props.info} onClick={handleClose}/>
         <ButtonOutlined  text = {props.no} onClick={handleClose}/>
         </div>
         {/* <ModalComp /> */}

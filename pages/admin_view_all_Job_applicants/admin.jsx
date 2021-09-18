@@ -36,6 +36,10 @@ export const getStaticProps = async () => {
                about_you: doc.data().description,
                cv: doc.data().imageUrl,
                linkedIn: doc.data().linkedIn,
+               jobTitle: doc.data().jobTitle,
+               companyName: doc.data().companyName,
+               deadLine: doc.data().deadLine,
+               pdf: doc.data().imageUrl,
           })
   
 
@@ -52,6 +56,7 @@ export const getStaticProps = async () => {
     return {
         props: {
           info
-        }
+        },
+        revalidate: 8,
     }
 }
