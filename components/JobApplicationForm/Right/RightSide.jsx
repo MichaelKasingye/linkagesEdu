@@ -70,7 +70,7 @@ if (messageStatus === true) {
 
         }
         
-    }, [messageStatus])
+    }, [messageStatus, router])
 
     
 
@@ -94,7 +94,7 @@ useEffect(() => {
     //         :router.reload()
     return () => {
     };
-}, [ ]);
+}, [info]);
 console.log(applicationData);
 // console.log(info);
 
