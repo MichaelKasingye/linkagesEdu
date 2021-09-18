@@ -2,6 +2,8 @@
 import { db } from '../../../Firebase/firebase';
 import firebase from "firebase";
 
+import Link from "next/link";   
+
 import TitleRight from "../../TitleRight/TitleRight";
 import SearchBar from "../../SearchBar/SearchBar";
 import opportStyles from "../../../styles/body/AllOpportunities.module.css";
@@ -53,7 +55,7 @@ function RightSide({server}) {
 console.log(server);
 const classes = useStyles();
 
-const tableHeads = [ "Job Offer",'Company Name','Applicant','Deadline']
+const tableHeads = [ "Job Offer",'Company Name','Applicant','Deadline','PDF']
     
 
   return (
@@ -110,9 +112,12 @@ const tableHeads = [ "Job Offer",'Company Name','Applicant','Deadline']
          <td>
          {data.jobTitle}
          </td>
-         <td >{data.coName}</td>
+         <td >{data.companyName}</td>
          <td >{data.fisrtName}</td>
-         <td >{data.deadline}</td>
+         <td >{data.deadLine}</td>
+         <td ><Link href={data.pdf}>  
+      <a>RESUME</a>
+ </Link></td>
       
        </tr>
      ))}

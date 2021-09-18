@@ -89,10 +89,10 @@ Router.push( "/");
             <Link href="https://outboxevents.netlify.app/">Events</Link>
           </li>
         </ul>
-        <div className={navStyles.user} onClick={toggle}>
-          <div className={navStyles.name}>
+        {/* <div className={navStyles.user} onClick={toggle}> */}
+          {/* <div className={navStyles.name}> */}
             {/* {userName} */}.
-            </div>
+            {/* </div> */}
           {/* {info && 
           <Image
             loader={({ src, width, quality }) => {
@@ -105,7 +105,7 @@ Router.push( "/");
             className={navStyles.img}
           />
           } */}
-        </div>
+        {/* </div> */}
       </nav>
       <div
         style={{ display: showMe ? "block" : "none" }}

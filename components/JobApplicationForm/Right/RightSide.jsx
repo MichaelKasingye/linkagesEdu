@@ -9,7 +9,8 @@ import {FormsText, FormsTextArea} from '../../Forms/Forms';
 import rightCss from '../../../styles/body/RightBody.module.css';
 import Modal from '../../Modal/Modal';
 import { ButtonFilled } from '../../Button/Button';
-
+import { useRouter } from 'next/router'
+import { useStateValue } from '../../../ContextAPI/StateProvider';
 
 
 
@@ -26,10 +27,52 @@ function RightSide() {
     const [link, setLink] = useState('');
     const [description, setDescription] = useState('');
     const [linkedIn, setLinkedIn] = useState('');
-    const [allData, setAllData] = useState('');
-   
+    // const [allData, setAllData] = useState('');
+    const [messageStatus, setMessageStatus] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [routingMessage, SetRoutingMessage] = useState('');
+    const [applicationData, SetApplicationData] = useState('');
+
+    const [{info}, dispatch] = useStateValue()
+
+    const success = "Success Application sent, please go back to View All jobs"
+    const error = "Error! Application not sent, Refresh the page and try again"
+
+    const router = useRouter()
 
 
+    useEffect(() => {
+        // router.push('/about')
+        function routing(){
+            // messageStatus == true
+            // ?router.reload()
+            // : null
+
+
+if (messageStatus === true) {
+    // SetRoutingMessage("Routing you to home page")
+    router.reload()
+
+} 
+
+        }
+        if (messageStatus === true) {
+            // SetRoutingMessage("Routing you to home page")
+            // router.reload()
+            setFile(null)
+
+        
+        } 
+        // setTimeout(routing, 3000)
+        return () => {
+            setErrorMessage(false)
+            // clearTimeout(routing)
+
+        }
+        
+    }, [messageStatus, router])
+
+    
 
 //     useEffect(() => {
 //        db.collection('jobsApplications').onSnapshot(snapshot => {
@@ -40,6 +83,21 @@ function RightSide() {
 //         return () => {
 //         };
 //         }, []);
+useEffect(() => {
+
+    SetApplicationData(info)
+    // if (!applicationData ) {
+    //     router.push('/')
+    // }
+    // !applicationData.coName 
+    //         ?router.back() 
+    //         :router.reload()
+    return () => {
+    };
+}, [info]);
+console.log(applicationData);
+// console.log(info);
+
 
         const handleChange = (e) => {
             if(e.target.files[0]){
@@ -51,6 +109,7 @@ function RightSide() {
     
         const applyJob = (event) =>{
             event.preventDefault();
+
 
             const uploadTask = storage.ref(`file/${file.name}`).put(file);
     
@@ -84,13 +143,25 @@ function RightSide() {
                                  link:link,
                                  description:description,
                                  linkedIn:linkedIn,
+
+                                 companyName:applicationData.coName,
+                                 jobTitle:applicationData.jobTitle,
+                                 deadLine:applicationData.deadline,
                             }).then((docRef) => {
                                 console.log("Document sent with ID: ", docRef.id );
                                 //update collection with document id
+                                // setMessage("Success Application sent");
+                                setMessageStatus(true);
+
+                               
                             })
                             .catch((error) => {
                                 console.error("Error adding document: ", error);
+                                setErrorMessage("Error! Application not sent, Refresh the page and try again");
+                                setMessageStatus(false);
+
                             });
+                            setFile(null)
                             setFName('');
                             setLName('');
 
@@ -99,10 +170,10 @@ function RightSide() {
                             setDescription('');
                             setLinkedIn('');
                             setProgress(0);
-                            setFile(null)
                         })
                     }
             )
+
         };
 
 
@@ -114,8 +185,8 @@ function RightSide() {
        {/* <SearchBar placeholder="Search.." onClick={()=>alert("Search button")}/> */}
 
        <form className={rightCss.FormsText}>
-
-            <label >First Name</label>
+       <span><label >Company Name</label> <h3>{applicationData.coName || " Please go back to all Jobs"}</h3></span> 
+            <label >First Name</label> 
             <input type="text" placeholder="First" value={fname} onChange={(e) => setFName(e.target.value)}/>  
             <label >Last Name</label>
             <input type="text" placeholder="Last" value={lname} onChange={(e) => setLName(e.target.value)}/> 
@@ -141,7 +212,11 @@ function RightSide() {
             
                 
             </form>         {/* <Modal title = "Delete" body="Are you sure" yes= "yes" no="no" ok="Ok" label="Apply" onClick={postJob} /> */}
-        <ButtonFilled text = "Submit" onClick={applyJob}/>
+            <h3 style={{color:'red'}}>{messageStatus?success:errorMessage} </h3>
+            <h3 style={{color:'red'}}>{routingMessage} </h3>
+{applicationData.coName? <ButtonFilled text = "Submit" onClick={applyJob}/>:""}
+       
+        {/* <Modal body={message} info="OK" onClick={applyJob}/> */}
 
         </section>
     )
