@@ -10,6 +10,15 @@ const config = {
   messagingSenderId: "985058206614",
   appId: "1:985058206614:web:d4bd094cda888563b5b3b7",
   measurementId: "G-J7VGMNX7F1"
+
+  // apiKey: "AIzaSyB6GO9pDLo5sg41yIkq2arv0sFXSp_Ja7k",
+  // authDomain: "edu-platform-f3a82.firebaseapp.com",
+  // databaseURL: "https://edu-platform-f3a82-default-rtdb.firebaseio.com",
+  // projectId: "edu-platform-f3a82",
+  // storageBucket: "edu-platform-f3a82.appspot.com",
+  // messagingSenderId: "195690313426",
+  // appId: "1:195690313426:web:41981410ab710f6e431f0b",
+  // measurementId: "G-XC1FX816H7"
      
 };
 

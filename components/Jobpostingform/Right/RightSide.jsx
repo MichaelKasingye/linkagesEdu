@@ -27,23 +27,6 @@ function RightSide() {
     const [alljobs, setAlljobs] = useState('');
 
 
-    // useEffect(() => {
-    //    db.collection('jobs').onSnapshot(snapshot => {
-    //     //    console.log(snapshot.docs.map(doc => doc.data()));
-    //     //    setCoName(snapshot.docs.map(doc => doc.data().coName));
-    //     //    setJob(snapshot.docs.map(doc => doc.data().jobTitle))
-    //     //    setLocation(snapshot.docs.map(doc => doc.data().location))
-    //     //    setJobdescription(snapshot.docs.map(doc => doc.data().jobDescription))
-    //     //    setQualifications(snapshot.docs.map(doc => doc.data().qualifications))
-    //     //    setCategory(snapshot.docs.map(doc => doc.data().jobCategory))
-    //     //    setDeadline(snapshot.docs.map(doc => doc.data().deadline))
-    //        setAlljobs(snapshot.docs.map(doc => doc.data()))
-    //    })
-
-    //    console.log(alljobs);
-    //     return () => {
-    //     };
-    //     }, []);
 
         function postJob(event) {
             event.preventDefault();

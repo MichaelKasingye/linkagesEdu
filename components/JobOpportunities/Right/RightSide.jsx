@@ -47,7 +47,7 @@ function RightSide({ server }) {
               key={job.id}
               jobTitle={job.jobTitle}
               company={job.coName}
-              location={job.locationion}
+              location={job.location}
               paragraph={job.jobDescription}
               deadline={job.deadline}
             />
